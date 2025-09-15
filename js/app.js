@@ -14,24 +14,29 @@ document.addEventListener('DOMContentLoaded', function() {
         { id: 'resumen', title: '9. Resumen Ejecutivo', icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>` },
     ];
 
-    // --- GENERACIÓN DINÁMICA DE CONTENIDO ---
-    sectionsData.forEach(data => {
-        const li = document.createElement('li');
-        li.innerHTML = `
-            <a href="#${data.id}" class="nav-link flex items-center gap-3 p-3 rounded-lg text-gray-600 hover:bg-gray-100 hover:text-brand-blue transition-colors duration-300">
-                <span class="completion-icon text-gray-400">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                </span>
-                ${data.icon}
-                <span class="flex-grow">${data.title}</span>
-            </a>`;
-        navMenu.appendChild(li);
+// --- CÓDIGO A REEMPLAZAR EN app.js ---
 
-        const section = document.createElement('section');
-        section.id = data.id;
-        section.className = 'section-content bg-white shadow-xl rounded-2xl p-8 mb-8';
-        mainContent.appendChild(section);
-    });
+// --- GENERACIÓN DINÁMICA DE CONTENIDO ---
+sectionsData.forEach(data => {
+    // Crear link de navegación
+    const li = document.createElement('li');
+    li.innerHTML = `
+        <a href="#${data.id}" class="nav-link flex items-center gap-3 p-3 rounded-lg text-gray-600 hover:bg-gray-100 hover:text-brand-blue transition-colors duration-300">
+            <span class="completion-icon text-gray-400">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+            </span>
+            ${data.icon}
+            <span class="flex-grow">${data.title}</span>
+        </a>`;
+    navMenu.appendChild(li);
+
+    // Crear contenedor de sección
+    const section = document.createElement('section');
+    section.id = data.id;
+    //-- MODIFICADO: Añadimos la clase 'avoid-break' a cada sección principal
+    section.className = 'avoid-break section-content bg-white shadow-xl rounded-2xl p-8 mb-8';
+    mainContent.appendChild(section);
+});
     
     // --- INYECTAR CONTENIDO HTML EN SECCIONES ---
     const instructionsBoxClass = "bg-blue-50 border-l-4 border-brand-blue p-4 mb-8 rounded-r-lg";
