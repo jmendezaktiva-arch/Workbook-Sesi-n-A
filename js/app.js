@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
         { id: 'feedback', title: '6. Feedback Ágil', icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a2 2 0 01-2-2V7a2 2 0 012-2h2.586a1 1 0 01.707.293l2.414 2.414a1 1 0 01.293.707V8z" /></svg>` },
         { id: 'roleplay', title: '7. Role-Play', icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>` },
         { id: 'plan', title: '8. Mi Plan de Implementación', icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" /></svg>` },
+        //-- NUEVO: Añadimos la sección del Resumen Ejecutivo al final de la lista.
+        { id: 'resumen', title: '9. Resumen Ejecutivo', icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>` },
     ];
 
     // --- GENERACIÓN DINÁMICA DE CONTENIDO ---
@@ -184,6 +186,43 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="mt-4"><label class="block font-semibold">Cómo lo Superaré:</label><textarea class="autosave-input w-full mt-1 p-2 border rounded" placeholder="Ej: Bloquear mi agenda por 2 horas..." data-section="plan" data-id="plan_estrategia"></textarea></div>
             </div>
         </div>`;
+    
+    //-- NUEVO: Inyectamos el HTML para la nueva sección del resumen ejecutivo.
+    document.getElementById('resumen').innerHTML = `
+        <h2 class="text-3xl font-bold brand-orange mb-4 flex items-center gap-3">${sectionsData[8].icon} ${sectionsData[8].title.substring(3)}</h2>
+        <div class="${instructionsBoxClass}">
+            <p><strong>Objetivo:</strong> Consolidar en un solo lugar los diagnósticos y planes de acción más importantes que has definido a lo largo de este cuaderno de trabajo.</p>
+            <p class="mt-2"><strong>Dashboard de Liderazgo:</strong> Este es tu plan de acción personal. Se actualiza automáticamente a medida que completas las otras secciones.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+            <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                <h3 class="font-bold text-lg text-brand-blue">Mayor Cuello de Botella</h3>
+                <p class="text-xs text-gray-500 mb-3">Fuente: Sec. 1 - Dependencia Operativa</p>
+                <p id="summary_cuello_botella" class="text-gray-700 font-serif italic bg-white p-3 rounded h-24">---</p>
+            </div>
+            <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                <h3 class="font-bold text-lg text-brand-blue">Problema Más Recurrente</h3>
+                <p class="text-xs text-gray-500 mb-3">Fuente: Sec. 2 - Vocación Puestos Clave</p>
+                <p id="summary_problema_recurrente" class="text-gray-700 font-serif italic bg-white p-3 rounded h-24">---</p>
+            </div>
+            <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                <h3 class="font-bold text-lg text-brand-blue">Grupo Piloto de Implementación</h3>
+                <p class="text-xs text-gray-500 mb-3">Fuente: Sec. 8 - Mi Plan de Implementación</p>
+                <div class="space-y-2">
+                    <p class="text-gray-700 bg-white p-3 rounded"><strong class="font-semibold">Colaborador 1:</strong> <span id="summary_colaborador1">---</span></p>
+                    <p class="text-gray-700 bg-white p-3 rounded"><strong class="font-semibold">Colaborador 2:</strong> <span id="summary_colaborador2">---</span></p>
+                </div>
+            </div>
+            <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                <h3 class="font-bold text-lg text-brand-blue">Plan para Superar Obstáculos</h3>
+                <p class="text-xs text-gray-500 mb-3">Fuente: Sec. 8 - Mi Plan de Implementación</p>
+                <div class="space-y-2">
+                    <p class="text-gray-700 bg-white p-3 rounded"><strong class="font-semibold">Principal Obstáculo:</strong> <span id="summary_obstaculo">---</span></p>
+                    <p class="text-gray-700 bg-white p-3 rounded"><strong class="font-semibold">Estrategia para Superarlo:</strong> <span id="summary_estrategia">---</span></p>
+                </div>
+            </div>
+        </div>`;
+
 
     // --- LÓGICA DE NAVEGACIÓN Y ESTADO ---
     const navLinks = document.querySelectorAll('.nav-link');
@@ -196,6 +235,11 @@ document.addEventListener('DOMContentLoaded', function() {
         navLinks.forEach(link => {
             link.classList.toggle('active', link.getAttribute('href') === hash);
         });
+
+        //-- NUEVO: Si la sección que se muestra es el resumen, actualizamos los datos.
+        if (hash === '#resumen') {
+            populateExecutiveSummary();
+        }
     }
 
     navMenu.addEventListener('click', function(e) {
@@ -212,7 +256,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // --- LÓGICA DE COMPLETITUD Y PROGRESO ---
     function checkCompletion() {
         let completedSections = 0;
-        sectionsData.forEach(data => {
+        //-- MODIFICADO: Excluimos la sección 'resumen' del cálculo de progreso.
+        const sectionsToCheck = sectionsData.filter(s => s.id !== 'resumen');
+
+        sectionsToCheck.forEach(data => {
             const sectionInputs = document.querySelectorAll(`.autosave-input[data-section="${data.id}"]`);
             let isComplete = false;
             if (sectionInputs.length > 0) {
@@ -233,7 +280,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 icon.classList.remove('text-green-500');
             }
         });
-        const progress = (completedSections / sectionsData.length) * 100;
+        const progress = (completedSections / sectionsToCheck.length) * 100;
         document.getElementById('progress-bar').style.width = `${progress}%`;
     }
 
@@ -254,6 +301,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         updateDelegacionTotals();
         checkCompletion();
+        //-- NUEVO: Llenamos el resumen ejecutivo al cargar la página por primera vez.
+        populateExecutiveSummary();
     }
 
     mainContent.addEventListener('input', function(e) {
@@ -265,6 +314,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 updateDelegacionTotals();
             }
             checkCompletion();
+            //-- NUEVO: Actualizamos el resumen en tiempo real con cada cambio.
+            populateExecutiveSummary();
             }
     });
         mainContent.addEventListener('change', function(e) {
@@ -278,6 +329,29 @@ document.addEventListener('DOMContentLoaded', function() {
             checkCompletion();
             }
     });
+
+    //-- NUEVO: Esta es la función principal que alimenta el Resumen Ejecutivo.
+    function populateExecutiveSummary() {
+        const placeholder = 'No definido aún.';
+
+        // IDs de los campos que queremos extraer
+        const dataMap = {
+            'summary_cuello_botella': 'cuaderno_evaluacion_reflexion',
+            'summary_problema_recurrente': 'cuaderno_vocacion_problema_recurrente',
+            'summary_colaborador1': 'cuaderno_plan_colaborador1',
+            'summary_colaborador2': 'cuaderno_plan_colaborador2',
+            'summary_obstaculo': 'cuaderno_plan_obstaculo',
+            'summary_estrategia': 'cuaderno_plan_estrategia'
+        };
+
+        for (const [elementId, storageKey] of Object.entries(dataMap)) {
+            const element = document.getElementById(elementId);
+            if (element) {
+                const value = localStorage.getItem(storageKey);
+                element.textContent = (value && value.trim() !== '') ? value : placeholder;
+            }
+        }
+    }
 
 
     // --- LÓGICA ESPECIALIZADA POR SECCIÓN ---
@@ -390,7 +464,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <span class="font-bold">${opt.color}:</span><span class="ml-2">${opt.text}</span>
                 </label>
             </div>`;
-        semaforoColaboradorDiv.innerHTML += optionHTML;
+        if (semaforoColaboradorDiv) semaforoColaboradorDiv.innerHTML += optionHTML;
         const optionHTML_lider = `
                 <div>
                 <input type="radio" name="semaforo_lider" id="sl_${opt.color}" class="autosave-input semaforo-radio sr-only" value="${opt.color}" data-section="feedback" data-id="feedback_semaforo_lider">
@@ -398,7 +472,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <span class="font-bold">${opt.color}:</span><span class="ml-2">${opt.text}</span>
                 </label>
             </div>`;
-        semaforoLiderDiv.innerHTML += optionHTML_lider;
+        if (semaforoLiderDiv) semaforoLiderDiv.innerHTML += optionHTML_lider;
     });
     
     // Sección 7: Role-Play
@@ -410,7 +484,7 @@ document.addEventListener('DOMContentLoaded', function() {
         row.innerHTML = `<td class="p-4">${aspecto}</td>
             <td class="p-2"><textarea class="autosave-input w-full p-2 border rounded" data-section="roleplay" data-id="roleplay_a${index}_aciertos"></textarea></td>
             <td class="p-2"><textarea class="autosave-input w-full p-2 border rounded" data-section="roleplay" data-id="roleplay_a${index}_mejoras"></textarea></td>`;
-        roleplayTableBody.appendChild(row);
+        if (roleplayTableBody) roleplayTableBody.appendChild(row);
     });
 
     // --- EXPORTAR A PDF ---
@@ -420,10 +494,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const loadingIndicator = document.getElementById('loading');
         loadingIndicator.style.display = 'block';
         
+        const currentHash = window.location.hash || `#${sectionsData[0].id}`;
         sections.forEach(s => s.classList.add('active')); // Show all for capture
         
         html2canvas(content, { scale: 2, useCORS: true }).then(canvas => {
-            showSection(window.location.hash || `#${sectionsData[0].id}`); // Revert to current view
+            showSection(currentHash); // Revert to current view
             const imgData = canvas.toDataURL('image/png');
             const pdf = new jsPDF('p', 'mm', 'a4');
             const pdfWidth = pdf.internal.pageSize.getWidth();
@@ -447,11 +522,16 @@ document.addEventListener('DOMContentLoaded', function() {
         }).catch(err => {
             console.error("Error al generar el PDF:", err);
             loadingIndicator.style.display = 'none';
-            showSection(window.location.hash || `#${sectionsData[0].id}`);
+            showSection(currentHash);
         });
     });
 
     // --- INICIALIZACIÓN FINAL ---
-    showSection(window.location.hash || `#${sectionsData[0].id}`);
+    const initialHash = window.location.hash || `#${sectionsData[0].id}`;
+    if (document.querySelector(initialHash)) {
+        showSection(initialHash);
+    } else {
+        showSection(`#${sectionsData[0].id}`);
+    }
     loadSavedData();
 });
