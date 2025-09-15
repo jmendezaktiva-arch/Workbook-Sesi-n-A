@@ -63,6 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="mt-4"><label class="block font-semibold text-gray-700">Del enfoque que identificaste en tu operación, ¿qué te impide resolverlo hoy?</label><textarea class="autosave-input w-full mt-1 p-3 border border-gray-300 rounded-lg" data-section="vocacion" data-id="vocacion_impedimento"></textarea></div>
         </div>`;
     
+    //-- MODIFICADO: Añadimos el contenedor grid para las dos columnas que generará el script más abajo.
     document.getElementById('prioridades').innerHTML = `
         <h2 class="text-3xl font-bold brand-orange mb-4 flex items-center gap-3">${sectionsData[2].icon} ${sectionsData[2].title.substring(3)}</h2>
             <div class="${instructionsBoxClass}">
@@ -192,7 +193,6 @@ document.addEventListener('DOMContentLoaded', function() {
         </table></div>
         <div class="mt-8"><h3 class="text-2xl font-bold text-gray-800">Mi Aprendizaje del Role-Play</h3><p class="text-gray-600 mt-2">¿Qué idea o estrategia te llevas de esta práctica que aplicarás en tu PYME?</p><textarea class="autosave-input w-full mt-2 p-3 border border-gray-300 rounded-lg h-32" data-section="roleplay" data-id="roleplay_aprendizaje"></textarea></div>`;
 
-    //-- MODIFICADO: Reestructuramos la sección del Plan para que sea un plan dual
     document.getElementById('plan').innerHTML = `
         <h2 class="text-3xl font-bold brand-orange mb-4 flex items-center gap-3">${sectionsData[7].icon} ${sectionsData[7].title.substring(3)}</h2>
         <div class="${instructionsBoxClass}">
@@ -240,7 +240,6 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
         </div>`;
     
-    //-- MODIFICADO: Ajustamos el resumen para que muestre ambos planes de acción.
     document.getElementById('resumen').innerHTML = `
         <h2 class="text-3xl font-bold brand-orange mb-4 flex items-center gap-3">${sectionsData[8].icon} ${sectionsData[8].title.substring(3)}</h2>
         <div class="${instructionsBoxClass}">
@@ -296,7 +295,6 @@ document.addEventListener('DOMContentLoaded', function() {
         if (hash === '#resumen') {
             populateExecutiveSummary();
         }
-        //-- NUEVO: Si la sección que se muestra es el plan, actualizamos los títulos.
         if (hash === '#plan') {
             updatePlanTitles();
         }
@@ -361,7 +359,7 @@ document.addEventListener('DOMContentLoaded', function() {
         updateDelegacionTotals();
         checkCompletion();
         populateExecutiveSummary();
-        updatePlanTitles(); //-- NUEVO
+        updatePlanTitles();
     }
 
     mainContent.addEventListener('input', function(e) {
@@ -372,7 +370,6 @@ document.addEventListener('DOMContentLoaded', function() {
             if(input.closest('#delegacion-table')) {
                 updateDelegacionTotals();
             }
-            //-- NUEVO: Si el cambio ocurre en la sección de vocación, actualizamos los títulos del plan
             if (input.dataset.section === 'vocacion') {
                 updatePlanTitles();
             }
@@ -392,7 +389,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
     });
     
-    //-- MODIFICADO: La función ahora extrae datos de los dos planes.
     function populateExecutiveSummary() {
         const placeholder = 'No definido aún.';
 
@@ -420,7 +416,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     try {
                         const date = new Date(value);
                         value = date.toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' }) + ' a las ' + date.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' });
-                    } catch(e) { /* no hacer nada si la fecha es inválida */ }
+                    } catch(e) { }
                 }
                 element.textContent = (value && value.trim() !== '') ? value : placeholder;
             }
@@ -430,7 +426,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // --- LÓGICA ESPECIALIZADA POR SECCIÓN ---
 
-    //-- NUEVO: Función para poner los títulos de los Puestos Clave en la sección del Plan.
     function updatePlanTitles() {
         const placeholderP1 = 'Puesto Clave 1';
         const placeholderP2 = 'Puesto Clave 2';
@@ -503,10 +498,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Sección 3: Prioridades de Mejora
     const prioridadesContainer = document.querySelector('#prioridades .grid');
+    //-- CÓDIGO RESTAURADO: Este loop genera las dos columnas para la sección 3.
     for (let i = 1; i <= 2; i++) {
         const div = document.createElement('div');
         div.className = 'bg-gray-50 p-6 rounded-lg';
-        div.innerHTML = `<h3 class="text-xl font-bold text-gray-800 mb-4">Colaborador Clave ${i}</h3>
+        div.innerHTML = `<h3 class="text-xl font-bold text-gray-800 mb-4">Análisis para Puesto Clave ${i}</h3>
             <div class="space-y-4">
                 <div><label class="block font-semibold text-gray-700">La Situación Inicial:</label><textarea class="autosave-input w-full mt-1 p-2 border rounded" data-section="prioridades" data-id="prioridades_c${i}_situacion"></textarea></div>
                 <div><label class="block font-semibold text-gray-700">Comportamiento / Decisión:</label><textarea class="autosave-input w-full mt-1 p-2 border rounded" data-section="prioridades" data-id="prioridades_c${i}_comportamiento"></textarea></div>
