@@ -479,22 +479,25 @@ document.addEventListener('DOMContentLoaded', function() {
         scoreResultDiv.style.display = 'block';
     });
 
-    // Sección 2: Vocación Puestos Clave
-    const puestosContainer = document.getElementById('puestos-clave-container');
-    for (let i = 1; i <= 2; i++) {
-        const puestoDiv = document.createElement('div');
-        puestoDiv.className = 'bg-gray-50 p-6 rounded-lg';
-        puestoDiv.innerHTML = `<h3 class="text-xl font-bold text-gray-800 mb-4">Puesto Clave ${i}</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <input type="text" placeholder="Título del puesto" class="autosave-input p-2 border rounded" data-section="vocacion" data-id="vocacion_p${i}_titulo">
-                <input type="text" placeholder="Antigüedad de Creación" class="autosave-input p-2 border rounded" data-section="vocacion" data-id="vocacion_p${i}_antiguedad_creacion">
-                <input type="number" placeholder="Personas que han ocupado el puesto (Histórico)" class="autosave-input p-2 border rounded" data-section="vocacion" data-id="vocacion_p${i}_num_personas">
-                <input type="text" placeholder="Antigüedad persona actual" class="autosave-input p-2 border rounded" data-section="vocacion" data-id="vocacion_p${i}_antiguedad_actual">
-            </div>
-            <div class="mt-4"><label class="block font-semibold">Funciones Principales</label><textarea class="autosave-input w-full mt-1 p-2 border rounded h-24" data-section="vocacion" data-id="vocacion_p${i}_funciones"></textarea></div>
-            <div class="mt-4"><label class="block font-semibold">Enfoque en el Objetivo (El "Para Qué")</label><textarea class="autosave-input w-full mt-1 p-2 border rounded h-24" data-section="vocacion" data-id="vocacion_p${i}_enfoque"></textarea></div>`;
-        puestosContainer.appendChild(puestoDiv);
-    }
+// --- CÓDIGO A REEMPLAZAR EN app.js ---
+
+// Sección 2: Vocación Puestos Clave
+const puestosContainer = document.getElementById('puestos-clave-container');
+for (let i = 1; i <= 2; i++) {
+    const puestoDiv = document.createElement('div');
+    //-- MODIFICADO: Añadimos la clase 'avoid-break' aquí
+    puestoDiv.className = 'avoid-break bg-gray-50 p-6 rounded-lg';
+    puestoDiv.innerHTML = `<h3 class="text-xl font-bold text-gray-800 mb-4">Puesto Clave ${i}</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <input type="text" placeholder="Título del puesto" class="autosave-input p-2 border rounded" data-section="vocacion" data-id="vocacion_p${i}_titulo">
+            <input type="text" placeholder="Antigüedad de Creación" class="autosave-input p-2 border rounded" data-section="vocacion" data-id="vocacion_p${i}_antiguedad_creacion">
+            <input type="number" placeholder="Personas que han ocupado el puesto (Histórico)" class="autosave-input p-2 border rounded" data-section="vocacion" data-id="vocacion_p${i}_num_personas">
+            <input type="text" placeholder="Antigüedad persona actual" class="autosave-input p-2 border rounded" data-section="vocacion" data-id="vocacion_p${i}_antiguedad_actual">
+        </div>
+        <div class="mt-4"><label class="block font-semibold">Funciones Principales</label><textarea class="autosave-input w-full mt-1 p-2 border rounded h-24" data-section="vocacion" data-id="vocacion_p${i}_funciones"></textarea></div>
+        <div class="mt-4"><label class="block font-semibold">Enfoque en el Objetivo (El "Para Qué")</label><textarea class="autosave-input w-full mt-1 p-2 border rounded h-24" data-section="vocacion" data-id="vocacion_p${i}_enfoque"></textarea></div>`;
+    puestosContainer.appendChild(puestoDiv);
+}
 
     // Sección 3: Prioridades de Mejora
     const prioridadesContainer = document.querySelector('#prioridades .grid');
