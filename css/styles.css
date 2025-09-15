@@ -53,3 +53,10 @@ h1, h2, h3, h4, h5, h6 {
     transform: scale(1.05);
     box-shadow: 0 0 0 3px var(--tw-ring-color);
 }
+
+/* --- NUEVO: Estilos para la exportación a PDF --- */
+@media print {
+  .avoid-break {
+    page-break-inside: avoid;
+  }
+}
