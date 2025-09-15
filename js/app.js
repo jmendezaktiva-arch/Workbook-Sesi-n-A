@@ -192,43 +192,55 @@ document.addEventListener('DOMContentLoaded', function() {
         </table></div>
         <div class="mt-8"><h3 class="text-2xl font-bold text-gray-800">Mi Aprendizaje del Role-Play</h3><p class="text-gray-600 mt-2">¿Qué idea o estrategia te llevas de esta práctica que aplicarás en tu PYME?</p><textarea class="autosave-input w-full mt-2 p-3 border border-gray-300 rounded-lg h-32" data-section="roleplay" data-id="roleplay_aprendizaje"></textarea></div>`;
 
-    //-- MODIFICADO: Reestructuramos completamente la sección del Plan de Implementación.
+    //-- MODIFICADO: Reestructuramos la sección del Plan para que sea un plan dual
     document.getElementById('plan').innerHTML = `
         <h2 class="text-3xl font-bold brand-orange mb-4 flex items-center gap-3">${sectionsData[7].icon} ${sectionsData[7].title.substring(3)}</h2>
         <div class="${instructionsBoxClass}">
-            <p><strong>Objetivo del ejercicio:</strong> Traducir todo el aprendizaje en una acción concreta y comprometida para los próximos 7 días.</p>
-            <p class="mt-2"><strong>Indicaciones:</strong> Define tu acción más importante. Al escribirla, aumentas la probabilidad de llevarla a cabo. Sé específico y realista.</p>
+            <p><strong>Objetivo del ejercicio:</strong> Traducir el aprendizaje en planes de acción concretos y comprometidos para tus Puestos Clave.</p>
+            <p class="mt-2"><strong>Indicaciones:</strong> Define una acción prioritaria para cada Puesto Clave identificado en la sección 2. Sé específico y realista.</p>
         </div>
-        <div class="space-y-6 bg-gray-50 p-8 rounded-lg">
-            <div>
-                <label class="block font-bold text-lg text-gray-700">Mi Acción Prioritaria #1 (¿Qué haré específicamente?)</label>
-                <p class="text-sm text-gray-500 mb-2">Ej: "Aplicar la 'Ficha de Rol Estratégico' con mi jefe de ventas."</p>
-                <textarea class="autosave-input w-full mt-1 p-3 border border-gray-300 rounded-lg h-24" data-section="plan" data-id="plan_accion_prioritaria"></textarea>
-            </div>
-            <div>
-                <label class="block font-bold text-lg text-gray-700">¿Con Quién? (Colaborador clave o área donde lo aplicaré)</label>
-                 <p class="text-sm text-gray-500 mb-2">Si aplica, anota el nombre del colaborador o el área de la empresa.</p>
-                <input type="text" placeholder="Nombre del colaborador..." class="autosave-input w-full p-3 border border-gray-300 rounded-lg" data-section="plan" data-id="plan_colaborador_clave">
-            </div>
-            <div>
-                <label class="block font-bold text-lg text-gray-700">¿Para Cuándo? (Fecha y hora límite)</label>
-                <p class="text-sm text-gray-500 mb-2">Establece un compromiso claro para esta acción en los próximos 7 días.</p>
-                <input type="datetime-local" class="autosave-input w-full p-3 border border-gray-300 rounded-lg" data-section="plan" data-id="plan_fecha_limite">
-            </div>
-            <div class="p-6 bg-red-50 rounded-lg border-l-4 border-red-500 mt-4">
-                <h3 class="text-xl font-bold text-red-800">Análisis de Obstáculos</h3>
-                <div class="mt-4">
-                    <label class="block font-semibold">Posible Obstáculo (¿Qué podría impedirte realizar esta acción?)</label>
-                    <textarea class="autosave-input w-full mt-1 p-2 border rounded" placeholder="Anticipa los desafíos para poder superarlos..." data-section="plan" data-id="plan_obstaculo"></textarea>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="bg-gray-50 p-6 rounded-lg space-y-4">
+                <h3 class="text-xl font-bold text-brand-blue border-b pb-2">Plan para: <span id="plan_puesto1_titulo" class="text-brand-orange">Puesto Clave 1</span></h3>
+                <div>
+                    <label class="block font-semibold text-gray-700">Acción Prioritaria #1 (¿Qué haré?)</label>
+                    <textarea class="autosave-input w-full mt-1 p-2 border rounded-md h-24" data-section="plan" data-id="plan_accion_prioritaria_p1"></textarea>
                 </div>
-                <div class="mt-4">
-                    <label class="block font-semibold">Cómo lo Superaré (Mi Estrategia para afrontar el obstáculo)</label>
-                    <textarea class="autosave-input w-full mt-1 p-2 border rounded" placeholder="Define un plan para sortear ese obstáculo..." data-section="plan" data-id="plan_estrategia"></textarea>
+                <div>
+                    <label class="block font-semibold text-gray-700">¿Para Cuándo?</label>
+                    <input type="datetime-local" class="autosave-input w-full mt-1 p-2 border rounded-md" data-section="plan" data-id="plan_fecha_limite_p1">
+                </div>
+                <div class="bg-red-50 p-4 rounded-md">
+                     <label class="block font-semibold text-gray-700">Posible Obstáculo</label>
+                    <textarea class="autosave-input w-full mt-1 p-2 border rounded-md" data-section="plan" data-id="plan_obstaculo_p1"></textarea>
+                </div>
+                <div class="bg-green-50 p-4 rounded-md">
+                    <label class="block font-semibold text-gray-700">¿Cómo lo Superaré?</label>
+                    <textarea class="autosave-input w-full mt-1 p-2 border rounded-md" data-section="plan" data-id="plan_estrategia_p1"></textarea>
+                </div>
+            </div>
+            <div class="bg-gray-50 p-6 rounded-lg space-y-4">
+                <h3 class="text-xl font-bold text-brand-blue border-b pb-2">Plan para: <span id="plan_puesto2_titulo" class="text-brand-orange">Puesto Clave 2</span></h3>
+                <div>
+                    <label class="block font-semibold text-gray-700">Acción Prioritaria #2 (¿Qué haré?)</label>
+                    <textarea class="autosave-input w-full mt-1 p-2 border rounded-md h-24" data-section="plan" data-id="plan_accion_prioritaria_p2"></textarea>
+                </div>
+                <div>
+                    <label class="block font-semibold text-gray-700">¿Para Cuándo?</label>
+                    <input type="datetime-local" class="autosave-input w-full mt-1 p-2 border rounded-md" data-section="plan" data-id="plan_fecha_limite_p2">
+                </div>
+                <div class="bg-red-50 p-4 rounded-md">
+                     <label class="block font-semibold text-gray-700">Posible Obstáculo</label>
+                    <textarea class="autosave-input w-full mt-1 p-2 border rounded-md" data-section="plan" data-id="plan_obstaculo_p2"></textarea>
+                </div>
+                <div class="bg-green-50 p-4 rounded-md">
+                    <label class="block font-semibold text-gray-700">¿Cómo lo Superaré?</label>
+                    <textarea class="autosave-input w-full mt-1 p-2 border rounded-md" data-section="plan" data-id="plan_estrategia_p2"></textarea>
                 </div>
             </div>
         </div>`;
     
-    //-- MODIFICADO: Ajustamos el resumen para que refleje el nuevo Plan de Acción.
+    //-- MODIFICADO: Ajustamos el resumen para que muestre ambos planes de acción.
     document.getElementById('resumen').innerHTML = `
         <h2 class="text-3xl font-bold brand-orange mb-4 flex items-center gap-3">${sectionsData[8].icon} ${sectionsData[8].title.substring(3)}</h2>
         <div class="${instructionsBoxClass}">
@@ -246,21 +258,24 @@ document.addEventListener('DOMContentLoaded', function() {
                 <p class="text-xs text-gray-500 mb-3">Fuente: Sec. 2 - Vocación Puestos Clave</p>
                 <p id="summary_problema_recurrente" class="text-gray-700 font-serif italic bg-white p-3 rounded h-24">---</p>
             </div>
+            
             <div class="md:col-span-2 bg-blue-50 p-6 rounded-lg shadow-md border-l-4 border-brand-blue">
-                <h3 class="font-bold text-xl text-brand-blue">Mi Acción Prioritaria #1</h3>
+                <h3 class="font-bold text-xl text-brand-blue">Plan de Acción para: <span id="summary_puesto1_titulo" class="text-brand-orange">Puesto Clave 1</span></h3>
                 <p class="text-xs text-gray-500 mb-3">Fuente: Sec. 8 - Mi Plan de Implementación</p>
-                <div id="summary_accion_prioritaria" class="text-gray-800 font-serif text-lg italic bg-white p-4 rounded mb-4">---</div>
+                <div id="summary_accion_prioritaria_p1" class="text-gray-800 font-serif text-lg italic bg-white p-4 rounded mb-4">---</div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <p class="text-gray-700 bg-white p-3 rounded"><strong class="font-semibold">Colaborador Clave:</strong> <span id="summary_colaborador_clave">---</span></p>
-                    <p class="text-gray-700 bg-white p-3 rounded"><strong class="font-semibold">Fecha Límite:</strong> <span id="summary_fecha_limite">---</span></p>
+                    <p class="text-gray-700 bg-white p-3 rounded"><strong class="font-semibold">Fecha Límite:</strong> <span id="summary_fecha_limite_p1">---</span></p>
+                    <p class="text-gray-700 bg-white p-3 rounded"><strong class="font-semibold">Obstáculo:</strong> <span id="summary_obstaculo_p1">---</span></p>
                 </div>
             </div>
-            <div class="md:col-span-2 bg-red-50 p-6 rounded-lg shadow-md border-l-4 border-red-500">
-                <h3 class="font-bold text-lg text-red-800">Plan para Superar Obstáculos</h3>
+
+             <div class="md:col-span-2 bg-blue-50 p-6 rounded-lg shadow-md border-l-4 border-brand-blue">
+                <h3 class="font-bold text-xl text-brand-blue">Plan de Acción para: <span id="summary_puesto2_titulo" class="text-brand-orange">Puesto Clave 2</span></h3>
                 <p class="text-xs text-gray-500 mb-3">Fuente: Sec. 8 - Mi Plan de Implementación</p>
-                <div class="space-y-2">
-                    <p class="text-gray-700 bg-white p-3 rounded"><strong class="font-semibold">Principal Obstáculo:</strong> <span id="summary_obstaculo">---</span></p>
-                    <p class="text-gray-700 bg-white p-3 rounded"><strong class="font-semibold">Estrategia para Superarlo:</strong> <span id="summary_estrategia">---</span></p>
+                <div id="summary_accion_prioritaria_p2" class="text-gray-800 font-serif text-lg italic bg-white p-4 rounded mb-4">---</div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <p class="text-gray-700 bg-white p-3 rounded"><strong class="font-semibold">Fecha Límite:</strong> <span id="summary_fecha_limite_p2">---</span></p>
+                    <p class="text-gray-700 bg-white p-3 rounded"><strong class="font-semibold">Obstáculo:</strong> <span id="summary_obstaculo_p2">---</span></p>
                 </div>
             </div>
         </div>`;
@@ -280,6 +295,10 @@ document.addEventListener('DOMContentLoaded', function() {
         
         if (hash === '#resumen') {
             populateExecutiveSummary();
+        }
+        //-- NUEVO: Si la sección que se muestra es el plan, actualizamos los títulos.
+        if (hash === '#plan') {
+            updatePlanTitles();
         }
     }
 
@@ -342,6 +361,7 @@ document.addEventListener('DOMContentLoaded', function() {
         updateDelegacionTotals();
         checkCompletion();
         populateExecutiveSummary();
+        updatePlanTitles(); //-- NUEVO
     }
 
     mainContent.addEventListener('input', function(e) {
@@ -351,6 +371,10 @@ document.addEventListener('DOMContentLoaded', function() {
             localStorage.setItem('cuaderno_' + input.dataset.id, valueToSave);
             if(input.closest('#delegacion-table')) {
                 updateDelegacionTotals();
+            }
+            //-- NUEVO: Si el cambio ocurre en la sección de vocación, actualizamos los títulos del plan
+            if (input.dataset.section === 'vocacion') {
+                updatePlanTitles();
             }
             checkCompletion();
             populateExecutiveSummary();
@@ -368,30 +392,35 @@ document.addEventListener('DOMContentLoaded', function() {
             }
     });
     
+    //-- MODIFICADO: La función ahora extrae datos de los dos planes.
     function populateExecutiveSummary() {
         const placeholder = 'No definido aún.';
 
         const dataMap = {
             'summary_cuello_botella': 'cuaderno_evaluacion_reflexion',
             'summary_problema_recurrente': 'cuaderno_vocacion_problema_recurrente',
-            'summary_accion_prioritaria': 'cuaderno_plan_accion_prioritaria',
-            'summary_colaborador_clave': 'cuaderno_plan_colaborador_clave',
-            'summary_fecha_limite': 'cuaderno_plan_fecha_limite',
-            'summary_obstaculo': 'cuaderno_plan_obstaculo',
-            'summary_estrategia': 'cuaderno_plan_estrategia'
+            // Plan 1
+            'summary_puesto1_titulo': 'cuaderno_vocacion_p1_titulo',
+            'summary_accion_prioritaria_p1': 'cuaderno_plan_accion_prioritaria_p1',
+            'summary_fecha_limite_p1': 'cuaderno_plan_fecha_limite_p1',
+            'summary_obstaculo_p1': 'cuaderno_plan_obstaculo_p1',
+            // Plan 2
+            'summary_puesto2_titulo': 'cuaderno_vocacion_p2_titulo',
+            'summary_accion_prioritaria_p2': 'cuaderno_plan_accion_prioritaria_p2',
+            'summary_fecha_limite_p2': 'cuaderno_plan_fecha_limite_p2',
+            'summary_obstaculo_p2': 'cuaderno_plan_obstaculo_p2',
+
         };
 
         for (const [elementId, storageKey] of Object.entries(dataMap)) {
             const element = document.getElementById(elementId);
             if (element) {
                 let value = localStorage.getItem(storageKey);
-                if (storageKey === 'cuaderno_plan_fecha_limite' && value) {
+                if ((storageKey === 'cuaderno_plan_fecha_limite_p1' || storageKey === 'cuaderno_plan_fecha_limite_p2') && value) {
                     try {
                         const date = new Date(value);
                         value = date.toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' }) + ' a las ' + date.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' });
-                    } catch(e) {
-                        
-                    }
+                    } catch(e) { /* no hacer nada si la fecha es inválida */ }
                 }
                 element.textContent = (value && value.trim() !== '') ? value : placeholder;
             }
@@ -400,6 +429,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     // --- LÓGICA ESPECIALIZADA POR SECCIÓN ---
+
+    //-- NUEVO: Función para poner los títulos de los Puestos Clave en la sección del Plan.
+    function updatePlanTitles() {
+        const placeholderP1 = 'Puesto Clave 1';
+        const placeholderP2 = 'Puesto Clave 2';
+        
+        const tituloP1 = localStorage.getItem('cuaderno_vocacion_p1_titulo') || placeholderP1;
+        const tituloP2 = localStorage.getItem('cuaderno_vocacion_p2_titulo') || placeholderP2;
+        
+        const spanP1 = document.getElementById('plan_puesto1_titulo');
+        const spanP2 = document.getElementById('plan_puesto2_titulo');
+
+        if(spanP1) spanP1.textContent = (tituloP1.trim() !== '') ? tituloP1 : placeholderP1;
+        if(spanP2) spanP2.textContent = (tituloP2.trim() !== '') ? tituloP2 : placeholderP2;
+    }
+
 
     // Sección 1: Dependencia operativa
     const questions = [
@@ -611,4 +656,3 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     loadSavedData();
 });
-}
