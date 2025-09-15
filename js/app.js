@@ -16,7 +16,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // --- GENERACIÓN DINÁMICA DE CONTENIDO ---
     sectionsData.forEach(data => {
-        // Crear link de navegación
         const li = document.createElement('li');
         li.innerHTML = `
             <a href="#${data.id}" class="nav-link flex items-center gap-3 p-3 rounded-lg text-gray-600 hover:bg-gray-100 hover:text-brand-blue transition-colors duration-300">
@@ -28,7 +27,6 @@ document.addEventListener('DOMContentLoaded', function() {
             </a>`;
         navMenu.appendChild(li);
 
-        // Crear contenedor de sección
         const section = document.createElement('section');
         section.id = data.id;
         section.className = 'section-content bg-white shadow-xl rounded-2xl p-8 mb-8';
@@ -55,8 +53,8 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('vocacion').innerHTML = `
         <h2 class="text-3xl font-bold brand-orange mb-4 flex items-center gap-3">${sectionsData[1].icon} ${sectionsData[1].title.substring(3)}</h2>
         <div class="${instructionsBoxClass}">
-            <p><strong>Objetivo del ejercicio:</strong> Ayudar al líder a diagnosticar si sus colaboradores clave están operando desde un enfoque en la ejecución de tareas o desde un enfoque de propiedad sobre los resultados. El fin es identificar la brecha entre el desempeño actual y el impacto estratégico esperado.</p>
-            <p class="mt-2"><strong>Instrucción:</strong> Describe las funciones principales de 2 de tus puestos clave y cuál crees que es la mejor forma de delegar esta función para responsabilizarlos. Piensa en un colaborador clave y analiza sus acciones y decisiones recientes para diagnosticar su enfoque predominante.</p>
+             <p><strong>Objetivo del ejercicio:</strong> Ayudar al líder a diagnosticar si sus colaboradores clave están operando desde un enfoque en la ejecución de tareas o desde un enfoque de propiedad sobre los resultados. El fin es identificar la brecha entre el desempeño actual y el impacto estratégico esperado.</p>
+             <p class="mt-2"><strong>Instrucción:</strong> Describe las funciones principales de 2 de tus puestos clave y cuál crees que es la mejor forma de delegar esta función para responsabilizarlos. Piensa en un colaborador clave y analiza sus acciones y decisiones recientes para diagnosticar su enfoque predominante.</p>
         </div>
         <div id="puestos-clave-container" class="space-y-8"></div>
         <div class="mt-8"><h3 class="text-2xl font-bold text-gray-800">Actividad Adicional</h3>
@@ -98,7 +96,6 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="mt-4"><label class="block font-semibold text-gray-700">¿Qué cambio observarías en tu relación con tu equipo si cada delegación incluyera propósito, claridad y seguimiento?</label><textarea class="autosave-input w-full mt-1 p-3 border border-gray-300 rounded-lg" data-section="mision" data-id="mision_cambio_observado"></textarea></div>
         </div>`;
     
-    //-- MODIFICADO: Añadimos la columna "Promedio" a la estructura HTML de la tabla.
     document.getElementById('delegacion').innerHTML = `
         <h2 class="text-3xl font-bold brand-orange mb-4 flex items-center gap-3">${sectionsData[4].icon} ${sectionsData[4].title.substring(3)}</h2>
         <div class="${instructionsBoxClass}">
@@ -137,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <input type="text" class="autosave-input p-2 border rounded" placeholder="Rol / puesto" data-section="feedback" data-id="feedback_rol">
             </div>
             <div class="mb-6"><label class="block font-semibold mb-1">Objetivo de Puesto a Evaluar:</label><textarea class="autosave-input w-full p-2 border rounded" data-section="feedback" data-id="feedback_objetivo"></textarea></div>
-            <div class="mb-6"><label class="block font-semibold mb-1">Prioridades del puesto:</label><textarea class="autosave-input w-full p-2 border rounded h-32" data-section="feedback" data-id="feedback_prioridades"></textarea></div>
+            <div class="mb-6"><label class="block font-semibold mb-1">Prioridades del puesto:</label><textarea class="autosave-input w-full mt-1 p-2 border rounded h-32" data-section="feedback" data-id="feedback_prioridades"></textarea></div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-6">
                 <div><h4 class="font-bold text-lg mb-2">1. Autoevaluación del Colaborador</h4><div class="space-y-3" id="semaforo-colaborador"></div></div>
                 <div><h4 class="font-bold text-lg mb-2">2. Evaluación Definitiva del Líder</h4><div class="space-y-3" id="semaforo-lider"></div></div>
@@ -194,6 +191,7 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
         </div>`;
     
+    //-- NUEVO: Inyectamos el HTML para la nueva sección del resumen ejecutivo.
     document.getElementById('resumen').innerHTML = `
         <h2 class="text-3xl font-bold brand-orange mb-4 flex items-center gap-3">${sectionsData[8].icon} ${sectionsData[8].title.substring(3)}</h2>
         <div class="${instructionsBoxClass}">
@@ -242,6 +240,7 @@ document.addEventListener('DOMContentLoaded', function() {
             link.classList.toggle('active', link.getAttribute('href') === hash);
         });
 
+        //-- NUEVO: Si la sección que se muestra es el resumen, actualizamos los datos.
         if (hash === '#resumen') {
             populateExecutiveSummary();
         }
@@ -261,6 +260,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // --- LÓGICA DE COMPLETITUD Y PROGRESO ---
     function checkCompletion() {
         let completedSections = 0;
+        //-- MODIFICADO: Excluimos la sección 'resumen' del cálculo de progreso.
         const sectionsToCheck = sectionsData.filter(s => s.id !== 'resumen');
 
         sectionsToCheck.forEach(data => {
@@ -305,6 +305,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         updateDelegacionTotals();
         checkCompletion();
+        //-- NUEVO: Llenamos el resumen ejecutivo al cargar la página por primera vez.
         populateExecutiveSummary();
     }
 
@@ -317,6 +318,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 updateDelegacionTotals();
             }
             checkCompletion();
+            //-- NUEVO: Actualizamos el resumen en tiempo real con cada cambio.
             populateExecutiveSummary();
             }
     });
@@ -332,9 +334,11 @@ document.addEventListener('DOMContentLoaded', function() {
             }
     });
 
+    //-- NUEVO: Esta es la función principal que alimenta el Resumen Ejecutivo.
     function populateExecutiveSummary() {
         const placeholder = 'No definido aún.';
 
+        // IDs de los campos que queremos extraer
         const dataMap = {
             'summary_cuello_botella': 'cuaderno_evaluacion_reflexion',
             'summary_problema_recurrente': 'cuaderno_vocacion_problema_recurrente',
@@ -436,13 +440,11 @@ document.addEventListener('DOMContentLoaded', function() {
         for (let i = 1; i <= 3; i++) {
             cells += `<td class="p-4 text-center"><select class="autosave-input p-2 border rounded delegacion-select" data-tarea="${i}" data-section="delegacion" data-id="delegacion_t${i}_p${index}"><option value="--">--</option><option value="1">Sí</option><option value="0">No</option></select></td>`;
         }
-        //-- MODIFICADO: Añadimos la celda para el promedio de cada fila.
         cells += `<td class="p-4 text-center font-bold bg-blue-50" id="promedio-p${index}">0%</td>`;
         row.innerHTML = cells;
         delegacionTableBody.appendChild(row);
     });
 
-    //-- MODIFICADO: La función ahora también llama a la que calcula promedios.
     function updateDelegacionTotals() {
         for (let i = 1; i <= 3; i++) {
             let total = 0;
@@ -451,10 +453,9 @@ document.addEventListener('DOMContentLoaded', function() {
             });
             document.getElementById(`total-tarea${i}`).textContent = `${total}/7`;
         }
-        updateDelegacionAverages(); // Llamamos a la nueva función
+        updateDelegacionAverages(); 
     }
 
-    //-- NUEVO: Función completa para calcular y mostrar los promedios.
     function updateDelegacionAverages() {
         let totalSum = 0;
         
@@ -529,10 +530,10 @@ document.addEventListener('DOMContentLoaded', function() {
         loadingIndicator.style.display = 'block';
         
         const currentHash = window.location.hash || `#${sectionsData[0].id}`;
-        sections.forEach(s => s.classList.add('active')); // Show all for capture
+        sections.forEach(s => s.classList.add('active')); 
         
         html2canvas(content, { scale: 2, useCORS: true }).then(canvas => {
-            showSection(currentHash); // Revert to current view
+            showSection(currentHash); 
             const imgData = canvas.toDataURL('image/png');
             const pdf = new jsPDF('p', 'mm', 'a4');
             const pdfWidth = pdf.internal.pageSize.getWidth();
@@ -569,4 +570,3 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     loadSavedData();
 });
-}
