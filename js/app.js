@@ -119,6 +119,29 @@ document.addEventListener('DOMContentLoaded', function() {
                 <td class="p-4 text-center bg-blue-100 text-brand-blue" id="total-promedio">0/7</td>
             </tr></tfoot>
         </table></div>
+        
+        <div class="mt-8">
+            <details class="bg-gray-50 rounded-lg border border-gray-200">
+                <summary class="p-4 font-semibold text-brand-blue cursor-pointer flex items-center justify-between">
+                    <span>Ver Buenas Prácticas de Delegación</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </summary>
+                <div class="p-4 border-t border-gray-200">
+                    <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                        <li>Vincular siempre al objetivo de puesto</li>
+                        <li>Formalizar en una breve sesión de coordinación</li>
+                        <li>Diferencia entre Orientación a la Tarea y Orientación al Objetivo</li>
+                        <li>Diferenciar tareas recurrentes y excepciones</li>
+                        <li>Asignar fecha y hora de entrega</li>
+                        <li>Respaldar siempre por escrito</li>
+                        <li>Preguntas de control para consolidar el compromiso</li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+        
         <div class="mt-8"><h3 class="text-2xl font-bold text-gray-800">Observaciones/Aprendizajes</h3><textarea class="autosave-input w-full mt-2 p-3 border border-gray-300 rounded-lg h-32" data-section="delegacion" data-id="delegacion_observaciones"></textarea></div>`;
     
     document.getElementById('feedback').innerHTML = `
