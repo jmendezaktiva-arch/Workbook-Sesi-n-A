@@ -192,29 +192,43 @@ document.addEventListener('DOMContentLoaded', function() {
         </table></div>
         <div class="mt-8"><h3 class="text-2xl font-bold text-gray-800">Mi Aprendizaje del Role-Play</h3><p class="text-gray-600 mt-2">¿Qué idea o estrategia te llevas de esta práctica que aplicarás en tu PYME?</p><textarea class="autosave-input w-full mt-2 p-3 border border-gray-300 rounded-lg h-32" data-section="roleplay" data-id="roleplay_aprendizaje"></textarea></div>`;
 
+    //-- MODIFICADO: Reestructuramos completamente la sección del Plan de Implementación.
     document.getElementById('plan').innerHTML = `
         <h2 class="text-3xl font-bold brand-orange mb-4 flex items-center gap-3">${sectionsData[7].icon} ${sectionsData[7].title.substring(3)}</h2>
         <div class="${instructionsBoxClass}">
-            <p><strong>Objetivo del ejercicio:</strong> Asegurar que te vayas con un compromiso personal y un plan de acción claro para los primeros 7 días, seleccionando un grupo piloto para implementar las herramientas clave de la sesión y anticipando obstáculos para aumentar la probabilidad de éxito.</p>
-            <p class="mt-2"><strong>Indicaciones:</strong> Esta es tu hoja de ruta personal para la próxima semana. El objetivo es traducir el aprendizaje de hoy en acciones concretas que inicien la transformación. Un pequeño paso constante es mejor que un gran plan que no se ejecuta.</p>
+            <p><strong>Objetivo del ejercicio:</strong> Traducir todo el aprendizaje en una acción concreta y comprometida para los próximos 7 días.</p>
+            <p class="mt-2"><strong>Indicaciones:</strong> Define tu acción más importante. Al escribirla, aumentas la probabilidad de llevarla a cabo. Sé específico y realista.</p>
         </div>
-        <div class="space-y-8">
-            <div class="p-6 bg-blue-50 rounded-lg border-l-4 border-brand-blue"><h3 class="text-xl font-bold text-brand-blue">Paso 1: Seleccionar el Grupo Piloto (Día 1)</h3><p class="mt-2 text-gray-600">Elige a dos colaboradores clave con quienes iniciarás esta nueva metodología.</p><div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4"><input type="text" placeholder="Colaborador Clave 1" class="autosave-input w-full p-2 border rounded" data-section="plan" data-id="plan_colaborador1"><input type="text" placeholder="Colaborador Clave 2" class="autosave-input w-full p-2 border rounded" data-section="plan" data-id="plan_colaborador2"></div></div>
-            <div class="p-6 bg-green-50 rounded-lg border-l-4 border-green-500"><h3 class="text-xl font-bold text-green-800">Paso 2: Redefinir un Rol Clave (Días 1-3)</h3><p class="mt-2 text-gray-600">Enfócate en uno de los colaboradores de tu grupo piloto. Utiliza las herramientas del taller para redefinir su puesto.</p><div class="mt-4 space-y-2">
-                <label><input type="checkbox" class="autosave-input" data-section="plan" data-id="plan_paso2_check1"> Completar la "Ficha de Rol Estratégico".</label>
-                <label><input type="checkbox" class="autosave-input" data-section="plan" data-id="plan_paso2_check2"> Revisar "Definición Vocación Puestos Clave".</label>
-                <label><input type="checkbox" class="autosave-input" data-section="plan" data-id="plan_paso2_check3"> Identificar "Prioridades de mejora".</label>
-                <label><input type="checkbox" class="autosave-input" data-section="plan" data-id="plan_paso2_check4"> Sintetizar en "Misión de puesto (Ficha Rol)".</label>
-            </div></div>
-            <div class="p-6 bg-yellow-50 rounded-lg border-l-4 border-yellow-500"><h3 class="text-xl font-bold text-yellow-800">Paso 3: Programar la Sesión de Alineación 1 a 1 (Días 4-5)</h3><p class="mt-2 text-gray-600">Agenda una reunión con tu colaborador para presentarle el nuevo enfoque de su puesto.</p><div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4"><input type="text" placeholder="Colaborador Seleccionado" class="autosave-input w-full p-2 border rounded" data-section="plan" data-id="plan_sesion_colaborador"><input type="datetime-local" class="autosave-input w-full p-2 border rounded" data-section="plan" data-id="plan_sesion_fecha"></div></div>
-            <div class="p-6 bg-purple-50 rounded-lg border-l-4 border-purple-500"><h3 class="text-xl font-bold text-purple-800">Paso 4: Preparar y Agendar la Primera Sesión de Feedback (Días 6-7)</h3><p class="mt-2 text-gray-600">Con base en la Ficha de Rol, prepara la primera sesión de seguimiento.</p><div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4"><input type="datetime-local" placeholder="Fecha y Hora Programada" class="autosave-input w-full p-2 border rounded" data-section="plan" data-id="plan_feedback_fecha"><input type="text" placeholder="Frecuencia acordada (Semanal, etc.)" class="autosave-input w-full p-2 border rounded" data-section="plan" data-id="plan_feedback_frecuencia"></div></div>
-            <div class="p-6 bg-red-50 rounded-lg border-l-4 border-red-500"><h3 class="text-xl font-bold text-red-800">Análisis de Obstáculos</h3>
-                <div class="mt-4"><label class="block font-semibold">Posible Obstáculo:</label><textarea class="autosave-input w-full mt-1 p-2 border rounded" placeholder="Ej: Falta de tiempo, resistencia del colaborador..." data-section="plan" data-id="plan_obstaculo"></textarea></div>
-                <div class="mt-4"><label class="block font-semibold">Cómo lo Superaré:</label><textarea class="autosave-input w-full mt-1 p-2 border rounded" placeholder="Ej: Bloquear mi agenda por 2 horas..." data-section="plan" data-id="plan_estrategia"></textarea></div>
+        <div class="space-y-6 bg-gray-50 p-8 rounded-lg">
+            <div>
+                <label class="block font-bold text-lg text-gray-700">Mi Acción Prioritaria #1 (¿Qué haré específicamente?)</label>
+                <p class="text-sm text-gray-500 mb-2">Ej: "Aplicar la 'Ficha de Rol Estratégico' con mi jefe de ventas."</p>
+                <textarea class="autosave-input w-full mt-1 p-3 border border-gray-300 rounded-lg h-24" data-section="plan" data-id="plan_accion_prioritaria"></textarea>
+            </div>
+            <div>
+                <label class="block font-bold text-lg text-gray-700">¿Con Quién? (Colaborador clave o área donde lo aplicaré)</label>
+                 <p class="text-sm text-gray-500 mb-2">Si aplica, anota el nombre del colaborador o el área de la empresa.</p>
+                <input type="text" placeholder="Nombre del colaborador..." class="autosave-input w-full p-3 border border-gray-300 rounded-lg" data-section="plan" data-id="plan_colaborador_clave">
+            </div>
+            <div>
+                <label class="block font-bold text-lg text-gray-700">¿Para Cuándo? (Fecha y hora límite)</label>
+                <p class="text-sm text-gray-500 mb-2">Establece un compromiso claro para esta acción en los próximos 7 días.</p>
+                <input type="datetime-local" class="autosave-input w-full p-3 border border-gray-300 rounded-lg" data-section="plan" data-id="plan_fecha_limite">
+            </div>
+            <div class="p-6 bg-red-50 rounded-lg border-l-4 border-red-500 mt-4">
+                <h3 class="text-xl font-bold text-red-800">Análisis de Obstáculos</h3>
+                <div class="mt-4">
+                    <label class="block font-semibold">Posible Obstáculo (¿Qué podría impedirte realizar esta acción?)</label>
+                    <textarea class="autosave-input w-full mt-1 p-2 border rounded" placeholder="Anticipa los desafíos para poder superarlos..." data-section="plan" data-id="plan_obstaculo"></textarea>
+                </div>
+                <div class="mt-4">
+                    <label class="block font-semibold">Cómo lo Superaré (Mi Estrategia para afrontar el obstáculo)</label>
+                    <textarea class="autosave-input w-full mt-1 p-2 border rounded" placeholder="Define un plan para sortear ese obstáculo..." data-section="plan" data-id="plan_estrategia"></textarea>
+                </div>
             </div>
         </div>`;
     
-    //-- NUEVO: Inyectamos el HTML para la nueva sección del resumen ejecutivo.
+    //-- MODIFICADO: Ajustamos el resumen para que refleje el nuevo Plan de Acción.
     document.getElementById('resumen').innerHTML = `
         <h2 class="text-3xl font-bold brand-orange mb-4 flex items-center gap-3">${sectionsData[8].icon} ${sectionsData[8].title.substring(3)}</h2>
         <div class="${instructionsBoxClass}">
@@ -232,16 +246,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 <p class="text-xs text-gray-500 mb-3">Fuente: Sec. 2 - Vocación Puestos Clave</p>
                 <p id="summary_problema_recurrente" class="text-gray-700 font-serif italic bg-white p-3 rounded h-24">---</p>
             </div>
-            <div class="bg-gray-50 p-6 rounded-lg shadow-md">
-                <h3 class="font-bold text-lg text-brand-blue">Grupo Piloto de Implementación</h3>
+            <div class="md:col-span-2 bg-blue-50 p-6 rounded-lg shadow-md border-l-4 border-brand-blue">
+                <h3 class="font-bold text-xl text-brand-blue">Mi Acción Prioritaria #1</h3>
                 <p class="text-xs text-gray-500 mb-3">Fuente: Sec. 8 - Mi Plan de Implementación</p>
-                <div class="space-y-2">
-                    <p class="text-gray-700 bg-white p-3 rounded"><strong class="font-semibold">Colaborador 1:</strong> <span id="summary_colaborador1">---</span></p>
-                    <p class="text-gray-700 bg-white p-3 rounded"><strong class="font-semibold">Colaborador 2:</strong> <span id="summary_colaborador2">---</span></p>
+                <div id="summary_accion_prioritaria" class="text-gray-800 font-serif text-lg italic bg-white p-4 rounded mb-4">---</div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <p class="text-gray-700 bg-white p-3 rounded"><strong class="font-semibold">Colaborador Clave:</strong> <span id="summary_colaborador_clave">---</span></p>
+                    <p class="text-gray-700 bg-white p-3 rounded"><strong class="font-semibold">Fecha Límite:</strong> <span id="summary_fecha_limite">---</span></p>
                 </div>
             </div>
-            <div class="bg-gray-50 p-6 rounded-lg shadow-md">
-                <h3 class="font-bold text-lg text-brand-blue">Plan para Superar Obstáculos</h3>
+            <div class="md:col-span-2 bg-red-50 p-6 rounded-lg shadow-md border-l-4 border-red-500">
+                <h3 class="font-bold text-lg text-red-800">Plan para Superar Obstáculos</h3>
                 <p class="text-xs text-gray-500 mb-3">Fuente: Sec. 8 - Mi Plan de Implementación</p>
                 <div class="space-y-2">
                     <p class="text-gray-700 bg-white p-3 rounded"><strong class="font-semibold">Principal Obstáculo:</strong> <span id="summary_obstaculo">---</span></p>
@@ -262,8 +277,7 @@ document.addEventListener('DOMContentLoaded', function() {
         navLinks.forEach(link => {
             link.classList.toggle('active', link.getAttribute('href') === hash);
         });
-
-        //-- NUEVO: Si la sección que se muestra es el resumen, actualizamos los datos.
+        
         if (hash === '#resumen') {
             populateExecutiveSummary();
         }
@@ -283,7 +297,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // --- LÓGICA DE COMPLETITUD Y PROGRESO ---
     function checkCompletion() {
         let completedSections = 0;
-        //-- MODIFICADO: Excluimos la sección 'resumen' del cálculo de progreso.
         const sectionsToCheck = sectionsData.filter(s => s.id !== 'resumen');
 
         sectionsToCheck.forEach(data => {
@@ -328,7 +341,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         updateDelegacionTotals();
         checkCompletion();
-        //-- NUEVO: Llenamos el resumen ejecutivo al cargar la página por primera vez.
         populateExecutiveSummary();
     }
 
@@ -341,7 +353,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 updateDelegacionTotals();
             }
             checkCompletion();
-            //-- NUEVO: Actualizamos el resumen en tiempo real con cada cambio.
             populateExecutiveSummary();
             }
     });
@@ -356,17 +367,17 @@ document.addEventListener('DOMContentLoaded', function() {
             checkCompletion();
             }
     });
-
-    //-- NUEVO: Esta es la función principal que alimenta el Resumen Ejecutivo.
+    
+    //-- MODIFICADO: Actualizamos la función del resumen para los nuevos campos del Plan de Acción.
     function populateExecutiveSummary() {
         const placeholder = 'No definido aún.';
 
-        // IDs de los campos que queremos extraer
         const dataMap = {
             'summary_cuello_botella': 'cuaderno_evaluacion_reflexion',
             'summary_problema_recurrente': 'cuaderno_vocacion_problema_recurrente',
-            'summary_colaborador1': 'cuaderno_plan_colaborador1',
-            'summary_colaborador2': 'cuaderno_plan_colaborador2',
+            'summary_accion_prioritaria': 'cuaderno_plan_accion_prioritaria',
+            'summary_colaborador_clave': 'cuaderno_plan_colaborador_clave',
+            'summary_fecha_limite': 'cuaderno_plan_fecha_limite',
             'summary_obstaculo': 'cuaderno_plan_obstaculo',
             'summary_estrategia': 'cuaderno_plan_estrategia'
         };
@@ -374,7 +385,16 @@ document.addEventListener('DOMContentLoaded', function() {
         for (const [elementId, storageKey] of Object.entries(dataMap)) {
             const element = document.getElementById(elementId);
             if (element) {
-                const value = localStorage.getItem(storageKey);
+                let value = localStorage.getItem(storageKey);
+                // Formatear la fecha si es el campo de fecha límite
+                if (storageKey === 'cuaderno_plan_fecha_limite' && value) {
+                    try {
+                        const date = new Date(value);
+                        value = date.toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' }) + ' a las ' + date.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' });
+                    } catch(e) {
+                        // si la fecha es inválida, no hacer nada
+                    }
+                }
                 element.textContent = (value && value.trim() !== '') ? value : placeholder;
             }
         }
