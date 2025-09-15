@@ -368,7 +368,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
     });
     
-    //-- MODIFICADO: Actualizamos la función del resumen para los nuevos campos del Plan de Acción.
     function populateExecutiveSummary() {
         const placeholder = 'No definido aún.';
 
@@ -386,13 +385,12 @@ document.addEventListener('DOMContentLoaded', function() {
             const element = document.getElementById(elementId);
             if (element) {
                 let value = localStorage.getItem(storageKey);
-                // Formatear la fecha si es el campo de fecha límite
                 if (storageKey === 'cuaderno_plan_fecha_limite' && value) {
                     try {
                         const date = new Date(value);
                         value = date.toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' }) + ' a las ' + date.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' });
                     } catch(e) {
-                        // si la fecha es inválida, no hacer nada
+                        
                     }
                 }
                 element.textContent = (value && value.trim() !== '') ? value : placeholder;
