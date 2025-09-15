@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', function() {
         { id: 'feedback', title: '6. Feedback Ágil', icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a2 2 0 01-2-2V7a2 2 0 012-2h2.586a1 1 0 01.707.293l2.414 2.414a1 1 0 01.293.707V8z" /></svg>` },
         { id: 'roleplay', title: '7. Role-Play', icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>` },
         { id: 'plan', title: '8. Mi Plan de Implementación', icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" /></svg>` },
-        //-- NUEVO: Añadimos la sección del Resumen Ejecutivo al final de la lista.
         { id: 'resumen', title: '9. Resumen Ejecutivo', icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>` },
     ];
 
@@ -99,6 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="mt-4"><label class="block font-semibold text-gray-700">¿Qué cambio observarías en tu relación con tu equipo si cada delegación incluyera propósito, claridad y seguimiento?</label><textarea class="autosave-input w-full mt-1 p-3 border border-gray-300 rounded-lg" data-section="mision" data-id="mision_cambio_observado"></textarea></div>
         </div>`;
     
+    //-- MODIFICADO: Añadimos la columna "Promedio" a la estructura HTML de la tabla.
     document.getElementById('delegacion').innerHTML = `
         <h2 class="text-3xl font-bold brand-orange mb-4 flex items-center gap-3">${sectionsData[4].icon} ${sectionsData[4].title.substring(3)}</h2>
         <div class="${instructionsBoxClass}">
@@ -111,9 +111,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 <th class="p-4 text-center font-bold"><input type="text" class="autosave-input w-full p-1 border border-gray-300 rounded" placeholder="Tarea 1" data-section="delegacion" data-id="delegacion_tarea1_nombre"></th>
                 <th class="p-4 text-center font-bold"><input type="text" class="autosave-input w-full p-1 border border-gray-300 rounded" placeholder="Tarea 2" data-section="delegacion" data-id="delegacion_tarea2_nombre"></th>
                 <th class="p-4 text-center font-bold"><input type="text" class="autosave-input w-full p-1 border border-gray-300 rounded" placeholder="Tarea 3" data-section="delegacion" data-id="delegacion_tarea3_nombre"></th>
+                <th class="p-4 text-center font-bold bg-blue-100 text-brand-blue">Promedio</th>
             </tr></thead>
             <tbody></tbody>
-            <tfoot><tr class="bg-gray-100 font-bold"><td class="p-4">Total</td><td class="p-4 text-center" id="total-tarea1">0/7</td><td class="p-4 text-center" id="total-tarea2">0/7</td><td class="p-4 text-center" id="total-tarea3">0/7</td></tr></tfoot>
+            <tfoot><tr class="bg-gray-100 font-bold">
+                <td class="p-4">Total</td>
+                <td class="p-4 text-center" id="total-tarea1">0/7</td>
+                <td class="p-4 text-center" id="total-tarea2">0/7</td>
+                <td class="p-4 text-center" id="total-tarea3">0/7</td>
+                <td class="p-4 text-center bg-blue-100 text-brand-blue" id="total-promedio">0/7</td>
+            </tr></tfoot>
         </table></div>
         <div class="mt-8"><h3 class="text-2xl font-bold text-gray-800">Observaciones/Aprendizajes</h3><textarea class="autosave-input w-full mt-2 p-3 border border-gray-300 rounded-lg h-32" data-section="delegacion" data-id="delegacion_observaciones"></textarea></div>`;
     
@@ -187,7 +194,6 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
         </div>`;
     
-    //-- NUEVO: Inyectamos el HTML para la nueva sección del resumen ejecutivo.
     document.getElementById('resumen').innerHTML = `
         <h2 class="text-3xl font-bold brand-orange mb-4 flex items-center gap-3">${sectionsData[8].icon} ${sectionsData[8].title.substring(3)}</h2>
         <div class="${instructionsBoxClass}">
@@ -236,7 +242,6 @@ document.addEventListener('DOMContentLoaded', function() {
             link.classList.toggle('active', link.getAttribute('href') === hash);
         });
 
-        //-- NUEVO: Si la sección que se muestra es el resumen, actualizamos los datos.
         if (hash === '#resumen') {
             populateExecutiveSummary();
         }
@@ -256,7 +261,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // --- LÓGICA DE COMPLETITUD Y PROGRESO ---
     function checkCompletion() {
         let completedSections = 0;
-        //-- MODIFICADO: Excluimos la sección 'resumen' del cálculo de progreso.
         const sectionsToCheck = sectionsData.filter(s => s.id !== 'resumen');
 
         sectionsToCheck.forEach(data => {
@@ -301,7 +305,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         updateDelegacionTotals();
         checkCompletion();
-        //-- NUEVO: Llenamos el resumen ejecutivo al cargar la página por primera vez.
         populateExecutiveSummary();
     }
 
@@ -314,7 +317,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 updateDelegacionTotals();
             }
             checkCompletion();
-            //-- NUEVO: Actualizamos el resumen en tiempo real con cada cambio.
             populateExecutiveSummary();
             }
     });
@@ -330,11 +332,9 @@ document.addEventListener('DOMContentLoaded', function() {
             }
     });
 
-    //-- NUEVO: Esta es la función principal que alimenta el Resumen Ejecutivo.
     function populateExecutiveSummary() {
         const placeholder = 'No definido aún.';
 
-        // IDs de los campos que queremos extraer
         const dataMap = {
             'summary_cuello_botella': 'cuaderno_evaluacion_reflexion',
             'summary_problema_recurrente': 'cuaderno_vocacion_problema_recurrente',
@@ -434,17 +434,51 @@ document.addEventListener('DOMContentLoaded', function() {
         row.className = 'border-b';
         let cells = `<td class="p-4">${pregunta}</td>`;
         for (let i = 1; i <= 3; i++) {
-            cells += `<td class="p-4 text-center"><select class="autosave-input p-2 border rounded delegacion-select" data-tarea="${i}" data-section="delegacion" data-id="delegacion_t${i}_p${index}"><option value="0">--</option><option value="1">Sí</option><option value="0">No</option></select></td>`;
+            cells += `<td class="p-4 text-center"><select class="autosave-input p-2 border rounded delegacion-select" data-tarea="${i}" data-section="delegacion" data-id="delegacion_t${i}_p${index}"><option value="--">--</option><option value="1">Sí</option><option value="0">No</option></select></td>`;
         }
+        //-- MODIFICADO: Añadimos la celda para el promedio de cada fila.
+        cells += `<td class="p-4 text-center font-bold bg-blue-50" id="promedio-p${index}">0%</td>`;
         row.innerHTML = cells;
         delegacionTableBody.appendChild(row);
     });
+
+    //-- MODIFICADO: La función ahora también llama a la que calcula promedios.
     function updateDelegacionTotals() {
         for (let i = 1; i <= 3; i++) {
             let total = 0;
-            document.querySelectorAll(`.delegacion-select[data-tarea="${i}"]`).forEach(s => total += parseInt(s.value));
+            document.querySelectorAll(`.delegacion-select[data-tarea="${i}"]`).forEach(s => {
+                if(s.value !== '--') total += parseInt(s.value)
+            });
             document.getElementById(`total-tarea${i}`).textContent = `${total}/7`;
         }
+        updateDelegacionAverages(); // Llamamos a la nueva función
+    }
+
+    //-- NUEVO: Función completa para calcular y mostrar los promedios.
+    function updateDelegacionAverages() {
+        let totalSum = 0;
+        
+        delegacionPreguntas.forEach((pregunta, index) => {
+            let rowSum = 0;
+            let answeredCount = 0;
+            for (let i = 1; i <= 3; i++) {
+                const select = document.querySelector(`select[data-id="delegacion_t${i}_p${index}"]`);
+                if (select.value !== '--') {
+                    rowSum += parseInt(select.value);
+                    answeredCount++;
+                }
+            }
+            const average = answeredCount > 0 ? (rowSum / answeredCount) * 100 : 0;
+            document.getElementById(`promedio-p${index}`).textContent = `${average.toFixed(0)}%`;
+        });
+
+        for (let i = 1; i <= 3; i++) {
+            const totalText = document.getElementById(`total-tarea${i}`).textContent;
+            totalSum += parseInt(totalText.split('/')[0]);
+        }
+
+        const averageTotal = totalSum / 3;
+        document.getElementById('total-promedio').textContent = `${averageTotal.toFixed(1)}/7`;
     }
 
     // Sección 6: Feedback Semáforo (Visual)
@@ -535,3 +569,4 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     loadSavedData();
 });
+}
