@@ -205,23 +205,28 @@ sectionsData.forEach(data => {
                 <div><label class="font-semibold">Colaborador:</label><textarea class="autosave-input w-full mt-1 p-2 border rounded h-40" placeholder="Lo que salió bien...&#10;Lo que debo mejorar...&#10;Qué me hizo falta..." data-section="feedback" data-id="feedback_retro_colaborador"></textarea></div>
                 <div><label class="font-semibold">Líder:</label><textarea class="autosave-input w-full mt-1 p-2 border rounded h-40" placeholder="Aciertos y Aportaciones...&#10;Cómo impacta el desempeño...&#10;Áreas de oportunidad..." data-section="feedback" data-id="feedback_retro_lider"></textarea></div>
             </div></div>
-            <div><h4 class="font-bold text-lg mb-2">4. Plan de Acción Acordado</h4><table class="w-full text-left">
-                <thead><tr class="bg-gray-200"><th class="p-2">Acción Específica</th><th class="p-2">Responsable</th><th class="p-2">Fecha Límite</th><th class="p-2">Fecha de Próxima Sesión</th></tr></thead>
+            <div>
+            <h4 class="font-bold text-lg mb-2">4. Plan de Acción Acordado</h4>
+            <table class="w-full text-left">
+                <thead>
+                    <tr class="bg-gray-200">
+                        <th class="p-2">Acción Específica</th>
+                        <th class="p-2">Responsable</th>
+                        <th class="p-2">Fecha Límite</th>
+                        <th class="p-2">Fecha de Próxima Sesión</th>
+                    </tr>
+                </thead>
                 <tbody>
-                    <tr>
-                        <td><input type="text" class="autosave-input w-full p-1 border rounded" data-section="feedback" data-id="feedback_accion1_desc" placeholder="Acción específica..."></td>
-                        <td><input type="text" class="autosave-input w-full p-1 border rounded" data-section="feedback" data-id="feedback_accion1_resp" placeholder="Responsable..."></td>
-                        <td><input type="date" class="autosave-input w-full p-1 border rounded" data-section="feedback" data-id="feedback_accion1_fecha"></td>
-                        <td><input type="date" class="autosave-input w-full p-1 border rounded" data-section="feedback" data-id="feedback_accion1_proxima_sesion"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="text" class="autosave-input w-full p-1 border rounded" data-section="feedback" data-id="feedback_accion2_desc" placeholder="Acción específica..."></td>
-                        <td><input type="text" class="autosave-input w-full p-1 border rounded" data-section="feedback" data-id="feedback_accion2_resp" placeholder="Responsable..."></td>
-                        <td><input type="date" class="autosave-input w-full p-1 border rounded" data-section="feedback" data-id="feedback_accion2_fecha"></td>
-                        <td><input type="date" class="autosave-input w-full p-1 border rounded" data-section="feedback" data-id="feedback_accion2_proxima_sesion"></td>
-                    </tr>
+                    ${Array.from({ length: 10 }, (_, i) => `
+                        <tr>
+                            <td><input type="text" class="autosave-input w-full p-1 border rounded" data-section="feedback" data-id="feedback_accion${i + 1}_desc" placeholder="Acción específica..."></td>
+                            <td><input type="text" class="autosave-input w-full p-1 border rounded" data-section="feedback" data-id="feedback_accion${i + 1}_resp" placeholder="Responsable..."></td>
+                            <td><input type="date" class="autosave-input w-full p-1 border rounded" data-section="feedback" data-id="feedback_accion${i + 1}_fecha"></td>
+                            <td><input type="date" class="autosave-input w-full p-1 border rounded" data-section="feedback" data-id="feedback_accion${i + 1}_proxima_sesion"></td>
+                        </tr>
+                    `).join('')}
                 </tbody>
-            </table></div>
+            </table>
         </div>`;
 
     document.getElementById('roleplay').innerHTML = `
