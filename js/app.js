@@ -171,7 +171,17 @@ sectionsData.forEach(data => {
             </details>
         </div>
         
-        <div class="mt-8"><h3 class="text-2xl font-bold text-gray-800">Observaciones/Aprendizajes</h3><textarea class="autosave-input w-full mt-2 p-3 border border-gray-300 rounded-lg h-32" data-section="delegacion" data-id="delegacion_observaciones" placeholder="Me doy cuenta de que casi nunca respaldo las delegaciones por escrito ni pregunto cómo puedo ayudar, lo que genera ambigüedad."></textarea></div>`;
+        <div class="mt-8">
+            <h3 class="text-2xl font-bold text-gray-800">Conclusiones</h3>
+            <div class="mt-4 bg-gray-50 p-4 rounded-lg border border-gray-200 text-gray-700">
+                <ol class="list-decimal list-inside space-y-2">
+                    <li>¿Tus áreas de oportunidad (calificaciones bajas) podrían relacionarse con algún problema recurrente en tu operación?</li>
+                    <li>¿Crees que sea relevante que como líder también abordes tus áreas de oportunidad?</li>
+                    <li>¿Cuál de estas áreas de oportunidad te parece prioritario abordar primero?</li>
+                </ol>
+            </div>
+            <textarea class="autosave-input w-full mt-4 p-3 border border-gray-300 rounded-lg h-32" data-section="delegacion" data-id="delegacion_observaciones" placeholder="Escribe aquí tus reflexiones basadas en las preguntas anteriores..."></textarea>
+        </div>`;
     
     document.getElementById('feedback').innerHTML = `
         <h2 class="text-3xl font-bold brand-orange mb-4 flex items-center gap-3">${sectionsData[5].icon} ${sectionsData[5].title.substring(3)}</h2>
