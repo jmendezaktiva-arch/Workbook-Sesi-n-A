@@ -79,27 +79,50 @@ sectionsData.forEach(data => {
             </div>
         <div class="mt-8"><h3 class="text-2xl font-bold text-gray-800">Reflexión</h3><p class="text-gray-600 mt-2">¿Qué harías diferente como líder para transformar una función de ejecución mecánica en uno orientado al resultado?</p><textarea class="autosave-input w-full mt-2 p-3 border border-gray-300 rounded-lg h-32" data-section="prioridades" data-id="prioridades_reflexion" placeholder="En lugar de solo asignar la tarea, explicaría el 'para qué' y el impacto que tiene en el cliente. Luego, establecería métricas de éxito claras."></textarea></div>`;
     
+    // CÓDIGO A REEMPLAZAR EN app.js
+
     document.getElementById('mision').innerHTML = `
         <h2 class="text-3xl font-bold brand-orange mb-4 flex items-center gap-3">${sectionsData[3].icon} ${sectionsData[3].title.substring(3)}</h2>
-            <div class="${instructionsBoxClass}">
+        <div class="${instructionsBoxClass}">
             <p><strong>Objetivo del ejercicio:</strong> Documentar por escrito la nueva definición para un puesto clave que sea clara, potente e inspiradora, como base para guiar al colaborador y líder en qué significa Lograr Ownership/Dominar el puesto.</p>
             <p class="mt-2"><strong>Instrucción:</strong> Adoptaremos las funciones identificadas en la "Definición Vocación Puestos Clave" para construir esta ficha.</p>
         </div>
-        <div class="bg-blue-50 p-6 rounded-lg"><h3 class="text-2xl font-bold text-brand-blue mb-4">Ficha de Rol Estratégico</h3><div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="md:col-span-2"><label class="block font-semibold text-gray-700">Nombre del Rol:</label><input type="text" class="autosave-input w-full mt-1 p-2 border border-gray-300 rounded-md" data-section="mision" data-id="mision_nombre_rol" placeholder="Ej: Gerente de Operaciones"></div>
-            <div class="md:col-span-2"><label class="block font-semibold text-gray-700">Responsabilidades Clave (El Territorio):</label><textarea class="autosave-input w-full mt-1 p-2 border border-gray-300 rounded-md h-40" data-section="mision" data-id="mision_responsabilidades" placeholder="1. Gestión de inventarios.&#10;2. Supervisión de logística y entregas.&#10;3. Optimización de procesos internos.&#10;4. Coordinación con el equipo de almacén."></textarea></div>
-            <div class="md:col-span-2"><label class="block font-semibold text-gray-700">Misión del Rol (Objetivo Principal - El QUÉ y PARA QUÉ):</label><textarea class="autosave-input w-full mt-1 p-2 border border-gray-300 rounded-md h-24" data-section="mision" data-id="mision_mision_rol" placeholder="Ej: Asegurar la entrega de proyectos al cliente dentro del plazo y presupuesto acordados, manteniendo un nivel de satisfacción superior al 90%."></textarea></div>
-            <div class="md:col-span-2"><label class="block font-semibold text-gray-700">Prioridades de Éxito del puesto:</label><p class="text-sm text-gray-500 mb-2">¿Cómo se mide qué se está logrando la vocación del puesto? Deben ser sencillos de rastrear.</p><textarea class="autosave-input w-full mt-1 p-2 border border-gray-300 rounded-md h-32" placeholder="1. Cumplir meta de ventas&#10;2. Inventario actualizado y sin fallos&#10;3. Sucursal limpia y ordenada" data-section="mision" data-id="mision_prioridades_exito"></textarea></div>
-            <div><label class="block font-semibold text-gray-700">Plazo de Revisión:</label><div class="mt-2 space-y-2">
-                <label class="flex items-center"><input type="radio" name="plazo_revision" class="autosave-input" value="Semanal" data-section="mision" data-id="mision_plazo_revision"> <span class="ml-2">Semanal</span></label>
-                <label class="flex items-center"><input type="radio" name="plazo_revision" class="autosave-input" value="Quincenal" data-section="mision" data-id="mision_plazo_revision"> <span class="ml-2">Quincenal</span></label>
-                <label class="flex items-center"><input type="radio" name="plazo_revision" class="autosave-input" value="Mensual" data-section="mision" data-id="mision_plazo_revision"> <span class="ml-2">Mensual</span></label>
-                <label class="flex items-center"><input type="radio" name="plazo_revision" class="autosave-input" value="Trimestral" data-section="mision" data-id="mision_plazo_revision"> <span class="ml-2">Trimestral</span></label>
-            </div></div>
-        </div></div>
+        
+        <div class="bg-blue-50 p-6 rounded-lg mt-8">
+            <h3 class="text-2xl font-bold text-brand-blue mb-4">Ficha de Rol Estratégico - Puesto Clave 1</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="md:col-span-2"><label class="block font-semibold text-gray-700">Nombre del Rol:</label><input type="text" class="autosave-input w-full mt-1 p-2 border border-gray-300 rounded-md" data-section="mision" data-id="mision_p1_nombre_rol" placeholder="Ej: Gerente de Operaciones"></div>
+                <div class="md:col-span-2"><label class="block font-semibold text-gray-700">Responsabilidades Clave (El Territorio):</label><textarea class="autosave-input w-full mt-1 p-2 border border-gray-300 rounded-md h-40" data-section="mision" data-id="mision_p1_responsabilidades" placeholder="1. Gestión de inventarios.&#10;2. Supervisión de logística y entregas.&#10;3. Optimización de procesos internos."></textarea></div>
+                <div class="md:col-span-2"><label class="block font-semibold text-gray-700">Misión del Rol (Objetivo Principal - El QUÉ y PARA QUÉ):</label><textarea class="autosave-input w-full mt-1 p-2 border border-gray-300 rounded-md h-24" data-section="mision" data-id="mision_p1_mision_rol" placeholder="Ej: Asegurar la entrega de proyectos al cliente dentro del plazo y presupuesto acordados, manteniendo un nivel de satisfacción superior al 90%."></textarea></div>
+                <div class="md:col-span-2"><label class="block font-semibold text-gray-700">Prioridades de Éxito del puesto:</label><p class="text-sm text-gray-500 mb-2">¿Cómo se mide qué se está logrando la vocación del puesto? Deben ser sencillos de rastrear.</p><textarea class="autosave-input w-full mt-1 p-2 border border-gray-300 rounded-md h-32" placeholder="1. Cumplir meta de ventas&#10;2. Inventario actualizado y sin fallos&#10;3. Sucursal limpia y ordenada" data-section="mision" data-id="mision_p1_prioridades_exito"></textarea></div>
+                <div><label class="block font-semibold text-gray-700">Plazo de Revisión:</label><div class="mt-2 space-y-2">
+                    <label class="flex items-center"><input type="radio" name="plazo_revision_p1" class="autosave-input" value="Semanal" data-section="mision" data-id="mision_p1_plazo_revision"> <span class="ml-2">Semanal</span></label>
+                    <label class="flex items-center"><input type="radio" name="plazo_revision_p1" class="autosave-input" value="Quincenal" data-section="mision" data-id="mision_p1_plazo_revision"> <span class="ml-2">Quincenal</span></label>
+                    <label class="flex items-center"><input type="radio" name="plazo_revision_p1" class="autosave-input" value="Mensual" data-section="mision" data-id="mision_p1_plazo_revision"> <span class="ml-2">Mensual</span></label>
+                    <label class="flex items-center"><input type="radio" name="plazo_revision_p1" class="autosave-input" value="Trimestral" data-section="mision" data-id="mision_p1_plazo_revision"> <span class="ml-2">Trimestral</span></label>
+                </div></div>
+            </div>
+        </div>
+
+        <div class="bg-blue-50 p-6 rounded-lg mt-8">
+            <h3 class="text-2xl font-bold text-brand-blue mb-4">Ficha de Rol Estratégico - Puesto Clave 2</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="md:col-span-2"><label class="block font-semibold text-gray-700">Nombre del Rol:</label><input type="text" class="autosave-input w-full mt-1 p-2 border border-gray-300 rounded-md" data-section="mision" data-id="mision_p2_nombre_rol" placeholder="Ej: Líder de Proyectos"></div>
+                <div class="md:col-span-2"><label class="block font-semibold text-gray-700">Responsabilidades Clave (El Territorio):</label><textarea class="autosave-input w-full mt-1 p-2 border border-gray-300 rounded-md h-40" data-section="mision" data-id="mision_p2_responsabilidades" placeholder="1. Planificación de proyectos.&#10;2. Asignación de tareas al equipo.&#10;3. Comunicación con stakeholders."></textarea></div>
+                <div class="md:col-span-2"><label class="block font-semibold text-gray-700">Misión del Rol (Objetivo Principal - El QUÉ y PARA QUÉ):</label><textarea class="autosave-input w-full mt-1 p-2 border border-gray-300 rounded-md h-24" data-section="mision" data-id="mision_p2_mision_rol" placeholder="Ej: Garantizar que los proyectos se completen a tiempo, dentro del presupuesto y cumplan con los estándares de calidad."></textarea></div>
+                <div class="md:col-span-2"><label class="block font-semibold text-gray-700">Prioridades de Éxito del puesto:</label><p class="text-sm text-gray-500 mb-2">¿Cómo se mide qué se está logrando la vocación del puesto? Deben ser sencillos de rastrear.</p><textarea class="autosave-input w-full mt-1 p-2 border border-gray-300 rounded-md h-32" placeholder="1. 95% de proyectos entregados a tiempo.&#10;2. Satisfacción del cliente > 8/10.&#10;3. Presupuesto del proyecto sin desviaciones > 5%. " data-section="mision" data-id="mision_p2_prioridades_exito"></textarea></div>
+                <div><label class="block font-semibold text-gray-700">Plazo de Revisión:</label><div class="mt-2 space-y-2">
+                    <label class="flex items-center"><input type="radio" name="plazo_revision_p2" class="autosave-input" value="Semanal" data-section="mision" data-id="mision_p2_plazo_revision"> <span class="ml-2">Semanal</span></label>
+                    <label class="flex items-center"><input type="radio" name="plazo_revision_p2" class="autosave-input" value="Quincenal" data-section="mision" data-id="mision_p2_plazo_revision"> <span class="ml-2">Quincenal</span></label>
+                    <label class="flex items-center"><input type="radio" name="plazo_revision_p2" class="autosave-input" value="Mensual" data-section="mision" data-id="mision_p2_plazo_revision"> <span class="ml-2">Mensual</span></label>
+                    <label class="flex items-center"><input type="radio" name="plazo_revision_p2" class="autosave-input" value="Trimestral" data-section="mision" data-id="mision_p2_plazo_revision"> <span class="ml-2">Trimestral</span></label>
+                </div></div>
+            </div>
+        </div>
+        
         <div class="mt-8"><h3 class="text-2xl font-bold text-gray-800">Reflexión Adicional</h3>
-        <div class="mt-4"><label class="block font-semibold text-gray-700">¿Qué recursos o capacitaciones crees que necesita la persona en este rol para cumplir exitosamente con su Misión y Responsabilidades Clave?</label><textarea class="autosave-input w-full mt-1 p-3 border border-gray-300 rounded-lg" data-section="mision" data-id="mision_recursos_necesarios" placeholder="Necesita un curso avanzado de Excel para análisis de datos y acceso a un software de gestión de inventarios."></textarea></div>
-        <div class="mt-4"><label class="block font-semibold text-gray-700">¿Qué cambio observarías en tu relación con tu equipo si cada delegación incluyera propósito, claridad y seguimiento?</label><textarea class="autosave-input w-full mt-1 p-3 border border-gray-300 rounded-lg" data-section="mision" data-id="mision_cambio_observado" placeholder="El equipo sería más proactivo, habría menos errores por falta de comunicación y yo podría enfocarme más en la estrategia."></textarea></div>
+            <div class="mt-4"><label class="block font-semibold text-gray-700">¿Qué recursos o capacitaciones crees que necesita la persona en este rol para cumplir exitosamente con su Misión y Responsabilidades Clave?</label><textarea class="autosave-input w-full mt-1 p-3 border border-gray-300 rounded-lg" data-section="mision" data-id="mision_recursos_necesarios" placeholder="Necesita un curso avanzado de Excel para análisis de datos y acceso a un software de gestión de inventarios."></textarea></div>
+            <div class="mt-4"><label class="block font-semibold text-gray-700">¿Qué cambio observarías en tu relación con tu equipo si cada delegación incluyera propósito, claridad y seguimiento?</label><textarea class="autosave-input w-full mt-1 p-3 border border-gray-300 rounded-lg" data-section="mision" data-id="mision_cambio_observado" placeholder="El equipo sería más proactivo, habría menos errores por falta de comunicación y yo podría enfocarme más en la estrategia."></textarea></div>
         </div>`;
     
     document.getElementById('delegacion').innerHTML = `
