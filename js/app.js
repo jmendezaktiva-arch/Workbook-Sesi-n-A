@@ -53,7 +53,7 @@ sectionsData.forEach(data => {
         </table></div>
         <div class="mt-6 text-right"><button id="calculate-score" class="bg-brand-orange text-white font-bold py-2 px-6 rounded-lg hover:bg-orange-600 transition-colors">Calcular Puntaje</button></div>
         <div id="score-result" class="mt-6 p-4 bg-blue-50 border-l-4 border-brand-blue rounded-r-lg" style="display: none;"><h4 class="font-bold text-lg brand-blue">Resultado del Diagnóstico</h4><p id="score-text" class="text-gray-700"></p></div>
-        <div class="mt-8"><h3 class="text-2xl font-bold text-gray-800">Reflexión Final</h3><p class="text-gray-600 mt-2">Según mi diagnóstico, el mayor 'cuello de botella' en mi operación hoy es...</p><textarea class="autosave-input w-full mt-2 p-3 border border-gray-300 rounded-lg h-32" data-section="evaluacion" data-id="evaluacion_reflexion"></textarea></div>`;
+        <div class="mt-8"><h3 class="text-2xl font-bold text-gray-800">Reflexión Final</h3><p class="text-gray-600 mt-2">Según mi diagnóstico, el mayor 'cuello de botella' en mi operación hoy es...</p><textarea class="autosave-input w-full mt-2 p-3 border border-gray-300 rounded-lg h-32" data-section="evaluacion" data-id="evaluacion_reflexion" placeholder="Ej: La autorización final de cotizaciones, ya que todas deben pasar por mí, retrasando la respuesta al cliente."></textarea></div>`;
 
     document.getElementById('vocacion').innerHTML = `
         <h2 class="text-3xl font-bold brand-orange mb-4 flex items-center gap-3">${sectionsData[1].icon} ${sectionsData[1].title.substring(3)}</h2>
@@ -63,9 +63,9 @@ sectionsData.forEach(data => {
         </div>
         <div id="puestos-clave-container" class="space-y-8"></div>
         <div class="mt-8"><h3 class="text-2xl font-bold text-gray-800">Actividad Adicional</h3>
-            <div class="mt-4"><label class="block font-semibold text-gray-700">Mi Problema Más Recurrente:</label><p class="text-sm text-gray-500 mb-2">De la lista anterior, identifica el enfoque de "Seguidor de Instrucciones/ Falta Ownership" que sea el más problemático para los resultados de tus colaboradores clave.</p><textarea class="autosave-input w-full mt-1 p-3 border border-gray-300 rounded-lg" data-section="vocacion" data-id="vocacion_problema_recurrente"></textarea></div>
-            <div class="mt-4"><label class="block font-semibold text-gray-700">¿Cómo crees que este comportamiento impacta negativamente los resultados de tu PYME?</label><textarea class="autosave-input w-full mt-1 p-3 border border-gray-300 rounded-lg" data-section="vocacion" data-id="vocacion_impacto_negativo"></textarea></div>
-            <div class="mt-4"><label class="block font-semibold text-gray-700">Del enfoque que identificaste en tu operación, ¿qué te impide resolverlo hoy?</label><textarea class="autosave-input w-full mt-1 p-3 border border-gray-300 rounded-lg" data-section="vocacion" data-id="vocacion_impedimento"></textarea></div>
+        <div class="mt-4"><label class="block font-semibold text-gray-700">Mi Problema Más Recurrente:</label><p class="text-sm text-gray-500 mb-2">De la lista anterior, identifica el enfoque de "Seguidor de Instrucciones/ Falta Ownership" que sea el más problemático para los resultados de tus colaboradores clave.</p><textarea class="autosave-input w-full mt-1 p-3 border border-gray-300 rounded-lg" data-section="vocacion" data-id="vocacion_problema_recurrente" placeholder="Mi equipo espera instrucciones detalladas en lugar de proponer soluciones."></textarea></div>
+        <div class="mt-4"><label class="block font-semibold text-gray-700">¿Cómo crees que este comportamiento impacta negativamente los resultados de tu PYME?</label><textarea class="autosave-input w-full mt-1 p-3 border border-gray-300 rounded-lg" data-section="vocacion" data-id="vocacion_impacto_negativo" placeholder="Retrasa los proyectos, genera retrabajos y aumenta mi carga operativa."></textarea></div>
+        <div class="mt-4"><label class="block font-semibold text-gray-700">Del enfoque que identificaste en tu operación, ¿qué te impide resolverlo hoy?</label><textarea class="autosave-input w-full mt-1 p-3 border border-gray-300 rounded-lg" data-section="vocacion" data-id="vocacion_impedimento" placeholder="Falta de tiempo para capacitar y el temor a que cometan errores costosos."></textarea></div>
         </div>`;
     
     //-- MODIFICADO: Añadimos el contenedor grid para las dos columnas que generará el script más abajo.
@@ -77,7 +77,7 @@ sectionsData.forEach(data => {
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             </div>
-        <div class="mt-8"><h3 class="text-2xl font-bold text-gray-800">Reflexión</h3><p class="text-gray-600 mt-2">¿Qué harías diferente como líder para transformar una función de ejecución mecánica en uno orientado al resultado?</p><textarea class="autosave-input w-full mt-2 p-3 border border-gray-300 rounded-lg h-32" data-section="prioridades" data-id="prioridades_reflexion"></textarea></div>`;
+        <div class="mt-8"><h3 class="text-2xl font-bold text-gray-800">Reflexión</h3><p class="text-gray-600 mt-2">¿Qué harías diferente como líder para transformar una función de ejecución mecánica en uno orientado al resultado?</p><textarea class="autosave-input w-full mt-2 p-3 border border-gray-300 rounded-lg h-32" data-section="prioridades" data-id="prioridades_reflexion" placeholder="En lugar de solo asignar la tarea, explicaría el 'para qué' y el impacto que tiene en el cliente. Luego, establecería métricas de éxito claras."></textarea></div>`;
     
     document.getElementById('mision').innerHTML = `
         <h2 class="text-3xl font-bold brand-orange mb-4 flex items-center gap-3">${sectionsData[3].icon} ${sectionsData[3].title.substring(3)}</h2>
@@ -86,8 +86,8 @@ sectionsData.forEach(data => {
             <p class="mt-2"><strong>Instrucción:</strong> Adoptaremos las funciones identificadas en la "Definición Vocación Puestos Clave" para construir esta ficha.</p>
         </div>
         <div class="bg-blue-50 p-6 rounded-lg"><h3 class="text-2xl font-bold text-brand-blue mb-4">Ficha de Rol Estratégico</h3><div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="md:col-span-2"><label class="block font-semibold text-gray-700">Nombre del Rol:</label><input type="text" class="autosave-input w-full mt-1 p-2 border border-gray-300 rounded-md" data-section="mision" data-id="mision_nombre_rol"></div>
-            <div class="md:col-span-2"><label class="block font-semibold text-gray-700">Responsabilidades Clave (El Territorio):</label><textarea class="autosave-input w-full mt-1 p-2 border border-gray-300 rounded-md h-40" data-section="mision" data-id="mision_responsabilidades"></textarea></div>
+            <div class="md:col-span-2"><label class="block font-semibold text-gray-700">Nombre del Rol:</label><input type="text" class="autosave-input w-full mt-1 p-2 border border-gray-300 rounded-md" data-section="mision" data-id="mision_nombre_rol" placeholder="Ej: Gerente de Operaciones"></div>
+            <div class="md:col-span-2"><label class="block font-semibold text-gray-700">Responsabilidades Clave (El Territorio):</label><textarea class="autosave-input w-full mt-1 p-2 border border-gray-300 rounded-md h-40" data-section="mision" data-id="mision_responsabilidades" placeholder="1. Gestión de inventarios.&#10;2. Supervisión de logística y entregas.&#10;3. Optimización de procesos internos.&#10;4. Coordinación con el equipo de almacén."></textarea></div>
             <div class="md:col-span-2"><label class="block font-semibold text-gray-700">Misión del Rol (Objetivo Principal - El QUÉ y PARA QUÉ):</label><p class="text-sm text-gray-500 mb-2">Ej: "Asegurar la entrega de proyectos al cliente dentro del plazo y presupuesto acordados, manteniendo un nivel de satisfacción superior al 90%."</p><textarea class="autosave-input w-full mt-1 p-2 border border-gray-300 rounded-md h-24" data-section="mision" data-id="mision_mision_rol"></textarea></div>
             <div class="md:col-span-2"><label class="block font-semibold text-gray-700">Prioridades de Éxito del puesto:</label><p class="text-sm text-gray-500 mb-2">¿Cómo se mide qué se está logrando la vocación del puesto? Deben ser sencillos de rastrear.</p><textarea class="autosave-input w-full mt-1 p-2 border border-gray-300 rounded-md h-32" placeholder="1. Cumplir meta de ventas&#10;2. Inventario actualizado y sin fallos&#10;3. Sucursal limpia y ordenada" data-section="mision" data-id="mision_prioridades_exito"></textarea></div>
             <div><label class="block font-semibold text-gray-700">Plazo de Revisión:</label><div class="mt-2 space-y-2">
@@ -98,8 +98,8 @@ sectionsData.forEach(data => {
             </div></div>
         </div></div>
         <div class="mt-8"><h3 class="text-2xl font-bold text-gray-800">Reflexión Adicional</h3>
-            <div class="mt-4"><label class="block font-semibold text-gray-700">¿Qué recursos o capacitaciones crees que necesita la persona en este rol para cumplir exitosamente con su Misión y Responsabilidades Clave?</label><textarea class="autosave-input w-full mt-1 p-3 border border-gray-300 rounded-lg" data-section="mision" data-id="mision_recursos_necesarios"></textarea></div>
-            <div class="mt-4"><label class="block font-semibold text-gray-700">¿Qué cambio observarías en tu relación con tu equipo si cada delegación incluyera propósito, claridad y seguimiento?</label><textarea class="autosave-input w-full mt-1 p-3 border border-gray-300 rounded-lg" data-section="mision" data-id="mision_cambio_observado"></textarea></div>
+        <div class="mt-4"><label class="block font-semibold text-gray-700">¿Qué recursos o capacitaciones crees que necesita la persona en este rol para cumplir exitosamente con su Misión y Responsabilidades Clave?</label><textarea class="autosave-input w-full mt-1 p-3 border border-gray-300 rounded-lg" data-section="mision" data-id="mision_recursos_necesarios" placeholder="Necesita un curso avanzado de Excel para análisis de datos y acceso a un software de gestión de inventarios."></textarea></div>
+        <div class="mt-4"><label class="block font-semibold text-gray-700">¿Qué cambio observarías en tu relación con tu equipo si cada delegación incluyera propósito, claridad y seguimiento?</label><textarea class="autosave-input w-full mt-1 p-3 border border-gray-300 rounded-lg" data-section="mision" data-id="mision_cambio_observado" placeholder="El equipo sería más proactivo, habría menos errores por falta de comunicación y yo podría enfocarme más en la estrategia."></textarea></div>
         </div>`;
     
     document.getElementById('delegacion').innerHTML = `
@@ -148,7 +148,7 @@ sectionsData.forEach(data => {
             </details>
         </div>
         
-        <div class="mt-8"><h3 class="text-2xl font-bold text-gray-800">Observaciones/Aprendizajes</h3><textarea class="autosave-input w-full mt-2 p-3 border border-gray-300 rounded-lg h-32" data-section="delegacion" data-id="delegacion_observaciones"></textarea></div>`;
+        <div class="mt-8"><h3 class="text-2xl font-bold text-gray-800">Observaciones/Aprendizajes</h3><textarea class="autosave-input w-full mt-2 p-3 border border-gray-300 rounded-lg h-32" data-section="delegacion" data-id="delegacion_observaciones" placeholder="Me doy cuenta de que casi nunca respaldo las delegaciones por escrito ni pregunto cómo puedo ayudar, lo que genera ambigüedad."></textarea></div>`;
     
     document.getElementById('feedback').innerHTML = `
         <h2 class="text-3xl font-bold brand-orange mb-4 flex items-center gap-3">${sectionsData[5].icon} ${sectionsData[5].title.substring(3)}</h2>
@@ -209,38 +209,38 @@ sectionsData.forEach(data => {
                 <h3 class="text-xl font-bold text-brand-blue border-b pb-2">Plan para: <span id="plan_puesto1_titulo" class="text-brand-orange">Puesto Clave 1</span></h3>
                 <div>
                     <label class="block font-semibold text-gray-700">Acción Prioritaria #1 (¿Qué haré?)</label>
-                    <textarea class="autosave-input w-full mt-1 p-2 border rounded-md h-24" data-section="plan" data-id="plan_accion_prioritaria_p1"></textarea>
+                    <textarea class="autosave-input w-full mt-1 p-2 border rounded-md h-24" data-section="plan" data-id="plan_accion_prioritaria_p1" placeholder="Redefinir la Misión del Puesto con el colaborador y establecer 2 indicadores de éxito."></textarea>
                 </div>
                 <div>
                     <label class="block font-semibold text-gray-700">¿Para Cuándo?</label>
                     <input type="datetime-local" class="autosave-input w-full mt-1 p-2 border rounded-md" data-section="plan" data-id="plan_fecha_limite_p1">
                 </div>
                 <div class="bg-red-50 p-4 rounded-md">
-                     <label class="block font-semibold text-gray-700">Posible Obstáculo</label>
-                    <textarea class="autosave-input w-full mt-1 p-2 border rounded-md" data-section="plan" data-id="plan_obstaculo_p1"></textarea>
+                    <label class="block font-semibold text-gray-700">Posible Obstáculo</label>
+                    <textarea class="autosave-input w-full mt-1 p-2 border rounded-md" data-section="plan" data-id="plan_obstaculo_p1" placeholder="La carga de trabajo diaria que nos impide tener una reunión enfocada."></textarea>
                 </div>
                 <div class="bg-green-50 p-4 rounded-md">
                     <label class="block font-semibold text-gray-700">¿Cómo lo Superaré?</label>
-                    <textarea class="autosave-input w-full mt-1 p-2 border rounded-md" data-section="plan" data-id="plan_estrategia_p1"></textarea>
+                    <textarea class="autosave-input w-full mt-1 p-2 border rounded-md" data-section="plan" data-id="plan_estrategia_p1" placeholder="Agendar la reunión a primera hora del día y bloquear 90 minutos en el calendario."></textarea>
                 </div>
             </div>
             <div class="bg-gray-50 p-6 rounded-lg space-y-4">
                 <h3 class="text-xl font-bold text-brand-blue border-b pb-2">Plan para: <span id="plan_puesto2_titulo" class="text-brand-orange">Puesto Clave 2</span></h3>
                 <div>
                     <label class="block font-semibold text-gray-700">Acción Prioritaria #2 (¿Qué haré?)</label>
-                    <textarea class="autosave-input w-full mt-1 p-2 border rounded-md h-24" data-section="plan" data-id="plan_accion_prioritaria_p2"></textarea>
+                    <textarea class="autosave-input w-full mt-1 p-2 border rounded-md h-24" data-section="plan" data-id="plan_accion_prioritaria_p2" placeholder="Implementar una sesión de feedback semanal de 15 minutos usando el formato 'Semáforo'."></textarea>
                 </div>
                 <div>
                     <label class="block font-semibold text-gray-700">¿Para Cuándo?</label>
                     <input type="datetime-local" class="autosave-input w-full mt-1 p-2 border rounded-md" data-section="plan" data-id="plan_fecha_limite_p2">
                 </div>
                 <div class="bg-red-50 p-4 rounded-md">
-                     <label class="block font-semibold text-gray-700">Posible Obstáculo</label>
-                    <textarea class="autosave-input w-full mt-1 p-2 border rounded-md" data-section="plan" data-id="plan_obstaculo_p2"></textarea>
+                    <label class="block font-semibold text-gray-700">Posible Obstáculo</label>
+                    <textarea class="autosave-input w-full mt-1 p-2 border rounded-md" data-section="plan" data-id="plan_obstaculo_p2" placeholder="La posible resistencia del colaborador a un nuevo proceso de evaluación."></textarea>
                 </div>
                 <div class="bg-green-50 p-4 rounded-md">
                     <label class="block font-semibold text-gray-700">¿Cómo lo Superaré?</label>
-                    <textarea class="autosave-input w-full mt-1 p-2 border rounded-md" data-section="plan" data-id="plan_estrategia_p2"></textarea>
+                    <textarea class="autosave-input w-full mt-1 p-2 border rounded-md" data-section="plan" data-id="plan_estrategia_p2" placeholder="Explicar el beneficio para su desarrollo profesional y empezar la primera sesión con un enfoque en los aciertos."></textarea>
                 </div>
             </div>
         </div>`;
@@ -499,8 +499,8 @@ for (let i = 1; i <= 2; i++) {
             <input type="number" placeholder="Personas que han ocupado el puesto (Histórico)" class="autosave-input p-2 border rounded" data-section="vocacion" data-id="vocacion_p${i}_num_personas">
             <input type="text" placeholder="Antigüedad persona actual" class="autosave-input p-2 border rounded" data-section="vocacion" data-id="vocacion_p${i}_antiguedad_actual">
         </div>
-        <div class="mt-4"><label class="block font-semibold">Funciones Principales</label><textarea class="autosave-input w-full mt-1 p-2 border rounded h-24" data-section="vocacion" data-id="vocacion_p${i}_funciones"></textarea></div>
-        <div class="mt-4"><label class="block font-semibold">Enfoque en el Objetivo (El "Para Qué")</label><textarea class="autosave-input w-full mt-1 p-2 border rounded h-24" data-section="vocacion" data-id="vocacion_p${i}_enfoque"></textarea></div>`;
+        <div class="mt-4"><label class="block font-semibold">Funciones Principales</label><textarea class="autosave-input w-full mt-1 p-2 border rounded h-24" data-section="vocacion" data-id="vocacion_p${i}_funciones" placeholder="1. Supervisar equipo de ventas.&#10;2. Realizar reportes semanales.&#10;3. Atender clientes clave."></textarea></div>
+        <div class="mt-4"><label class="block font-semibold">Enfoque en el Objetivo (El "Para Qué")</label><textarea class="autosave-input w-full mt-1 p-2 border rounded h-24" data-section="vocacion" data-id="vocacion_p${i}_enfoque" placeholder="Asegurar que el equipo alcance la meta de ventas mensual para garantizar la rentabilidad del área."></textarea></div>`;
     puestosContainer.appendChild(puestoDiv);
 }
 
@@ -512,10 +512,10 @@ for (let i = 1; i <= 2; i++) {
         div.className = 'bg-gray-50 p-6 rounded-lg';
         div.innerHTML = `<h3 class="text-xl font-bold text-gray-800 mb-4">Análisis para Puesto Clave ${i}</h3>
             <div class="space-y-4">
-                <div><label class="block font-semibold text-gray-700">La Situación Inicial:</label><textarea class="autosave-input w-full mt-1 p-2 border rounded" data-section="prioridades" data-id="prioridades_c${i}_situacion"></textarea></div>
-                <div><label class="block font-semibold text-gray-700">Comportamiento / Decisión:</label><textarea class="autosave-input w-full mt-1 p-2 border rounded" data-section="prioridades" data-id="prioridades_c${i}_comportamiento"></textarea></div>
-                <div><label class="block font-semibold text-gray-700">El Resultado:</label><textarea class="autosave-input w-full mt-1 p-2 border rounded" data-section="prioridades" data-id="prioridades_c${i}_resultado"></textarea></div>
-                <div><label class="block font-semibold text-gray-700">El Ownership (Abordaje idóneo):</label><textarea class="autosave-input w-full mt-1 p-2 border rounded" data-section="prioridades" data-id="prioridades_c${i}_ownership"></textarea></div>
+            <div><label class="block font-semibold text-gray-700">La Situación Inicial:</label><textarea class="autosave-input w-full mt-1 p-2 border rounded" data-section="prioridades" data-id="prioridades_c${i}_situacion" placeholder="Un cliente importante se quejó por un retraso en la entrega."></textarea></div>
+            <div><label class="block font-semibold text-gray-700">Comportamiento / Decisión:</label><textarea class="autosave-input w-full mt-1 p-2 border rounded" data-section="prioridades" data-id="prioridades_c${i}_comportamiento" placeholder="El colaborador me reenvió el correo del cliente sin proponer una solución."></textarea></div>
+            <div><label class="block font-semibold text-gray-700">El Resultado:</label><textarea class="autosave-input w-full mt-1 p-2 border rounded" data-section="prioridades" data-id="prioridades_c${i}_resultado" placeholder="Tuve que intervenir, contactar al cliente y resolver el problema yo mismo."></textarea></div>
+            <div><label class="block font-semibold text-gray-700">El Ownership (Abordaje idóneo):</label><textarea class="autosave-input w-full mt-1 p-2 border rounded" data-section="prioridades" data-id="prioridades_c${i}_ownership" placeholder="Analizar la causa del retraso, contactar al cliente con una disculpa y una nueva fecha, y luego informarme con un plan."></textarea></div>
             </div>`;
         prioridadesContainer.appendChild(div);
     }
