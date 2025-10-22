@@ -88,7 +88,7 @@ sectionsData.forEach(data => {
         <div class="bg-blue-50 p-6 rounded-lg"><h3 class="text-2xl font-bold text-brand-blue mb-4">Ficha de Rol Estratégico</h3><div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div class="md:col-span-2"><label class="block font-semibold text-gray-700">Nombre del Rol:</label><input type="text" class="autosave-input w-full mt-1 p-2 border border-gray-300 rounded-md" data-section="mision" data-id="mision_nombre_rol" placeholder="Ej: Gerente de Operaciones"></div>
             <div class="md:col-span-2"><label class="block font-semibold text-gray-700">Responsabilidades Clave (El Territorio):</label><textarea class="autosave-input w-full mt-1 p-2 border border-gray-300 rounded-md h-40" data-section="mision" data-id="mision_responsabilidades" placeholder="1. Gestión de inventarios.&#10;2. Supervisión de logística y entregas.&#10;3. Optimización de procesos internos.&#10;4. Coordinación con el equipo de almacén."></textarea></div>
-            <div class="md:col-span-2"><label class="block font-semibold text-gray-700">Misión del Rol (Objetivo Principal - El QUÉ y PARA QUÉ):</label><p class="text-sm text-gray-500 mb-2">Ej: "Asegurar la entrega de proyectos al cliente dentro del plazo y presupuesto acordados, manteniendo un nivel de satisfacción superior al 90%."</p><textarea class="autosave-input w-full mt-1 p-2 border border-gray-300 rounded-md h-24" data-section="mision" data-id="mision_mision_rol"></textarea></div>
+            <div class="md:col-span-2"><label class="block font-semibold text-gray-700">Misión del Rol (Objetivo Principal - El QUÉ y PARA QUÉ):</label><textarea class="autosave-input w-full mt-1 p-2 border border-gray-300 rounded-md h-24" data-section="mision" data-id="mision_mision_rol" placeholder="Ej: Asegurar la entrega de proyectos al cliente dentro del plazo y presupuesto acordados, manteniendo un nivel de satisfacción superior al 90%."></textarea></div>
             <div class="md:col-span-2"><label class="block font-semibold text-gray-700">Prioridades de Éxito del puesto:</label><p class="text-sm text-gray-500 mb-2">¿Cómo se mide qué se está logrando la vocación del puesto? Deben ser sencillos de rastrear.</p><textarea class="autosave-input w-full mt-1 p-2 border border-gray-300 rounded-md h-32" placeholder="1. Cumplir meta de ventas&#10;2. Inventario actualizado y sin fallos&#10;3. Sucursal limpia y ordenada" data-section="mision" data-id="mision_prioridades_exito"></textarea></div>
             <div><label class="block font-semibold text-gray-700">Plazo de Revisión:</label><div class="mt-2 space-y-2">
                 <label class="flex items-center"><input type="radio" name="plazo_revision" class="autosave-input" value="Semanal" data-section="mision" data-id="mision_plazo_revision"> <span class="ml-2">Semanal</span></label>
@@ -162,8 +162,8 @@ sectionsData.forEach(data => {
                 <input type="date" class="autosave-input p-2 border rounded" data-section="feedback" data-id="feedback_fecha">
                 <input type="text" class="autosave-input p-2 border rounded" placeholder="Rol / puesto" data-section="feedback" data-id="feedback_rol">
             </div>
-            <div class="mb-6"><label class="block font-semibold mb-1">Objetivo de Puesto a Evaluar:</label><textarea class="autosave-input w-full p-2 border rounded" data-section="feedback" data-id="feedback_objetivo"></textarea></div>
-            <div class="mb-6"><label class="block font-semibold mb-1">Prioridades del puesto:</label><textarea class="autosave-input w-full mt-1 p-2 border rounded h-32" data-section="feedback" data-id="feedback_prioridades"></textarea></div>
+            <div class="mb-6"><label class="block font-semibold mb-1">Objetivo de Puesto a Evaluar:</label><textarea class="autosave-input w-full p-2 border rounded" data-section="feedback" data-id="feedback_objetivo" placeholder="Ej: Reducir el tiempo de respuesta a tickets de soporte en un 20%."></textarea></div>
+            <div class="mb-6"><label class="block font-semibold mb-1">Prioridades del puesto:</label><textarea class="autosave-input w-full mt-1 p-2 border rounded h-32" data-section="feedback" data-id="feedback_prioridades" placeholder="1. Atender tickets de alta prioridad.&#10;2. Documentar soluciones en la base de conocimiento.&#10;3. Escalar problemas complejos al equipo de desarrollo."></textarea></div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-6">
                 <div><h4 class="font-bold text-lg mb-2">1. Autoevaluación del Colaborador</h4><div class="space-y-3" id="semaforo-colaborador"></div></div>
                 <div><h4 class="font-bold text-lg mb-2">2. Evaluación Definitiva del Líder</h4><div class="space-y-3" id="semaforo-lider"></div></div>
@@ -175,8 +175,8 @@ sectionsData.forEach(data => {
             <div><h4 class="font-bold text-lg mb-2">4. Plan de Acción Acordado</h4><table class="w-full text-left">
                 <thead><tr class="bg-gray-200"><th class="p-2">Acción Específica</th><th class="p-2">Responsable</th><th class="p-2">Fecha Límite</th></tr></thead>
                 <tbody>
-                    <tr><td><input type="text" class="autosave-input w-full p-1 border rounded" data-section="feedback" data-id="feedback_accion1_desc"></td><td><input type="text" class="autosave-input w-full p-1 border rounded" data-section="feedback" data-id="feedback_accion1_resp"></td><td><input type="date" class="autosave-input w-full p-1 border rounded" data-section="feedback" data-id="feedback_accion1_fecha"></td></tr>
-                    <tr><td><input type="text" class="autosave-input w-full p-1 border rounded" data-section="feedback" data-id="feedback_accion2_desc"></td><td><input type="text" class="autosave-input w-full p-1 border rounded" data-section="feedback" data-id="feedback_accion2_resp"></td><td><input type="date" class="autosave-input w-full p-1 border rounded" data-section="feedback" data-id="feedback_accion2_fecha"></td></tr>
+                    <tr><td><input type="text" class="autosave-input w-full p-1 border rounded" data-section="feedback" data-id="feedback_accion1_desc" placeholder="Acción específica..."></td><td><input type="text" class="autosave-input w-full p-1 border rounded" data-section="feedback" data-id="feedback_accion1_resp" placeholder="Responsable..."></td><td><input type="date" class="autosave-input w-full p-1 border rounded" data-section="feedback" data-id="feedback_accion1_fecha"></td></tr>
+                    <tr><td><input type="text" class="autosave-input w-full p-1 border rounded" data-section="feedback" data-id="feedback_accion2_desc" placeholder="Acción específica..."></td><td><input type="text" class="autosave-input w-full p-1 border rounded" data-section="feedback" data-id="feedback_accion2_resp" placeholder="Responsable..."></td><td><input type="date" class="autosave-input w-full p-1 border rounded" data-section="feedback" data-id="feedback_accion2_fecha"></td></tr>
                 </tbody>
             </table></div>
         </div>`;
@@ -196,7 +196,7 @@ sectionsData.forEach(data => {
             <thead><tr class="bg-gray-50"><th class="p-4 font-bold">Aspectos Clave a Observar</th><th class="p-4 font-bold">Aciertos / Fortalezas del Líder</th><th class="p-4 font-bold">Oportunidades de Mejora / Recomendaciones</th></tr></thead>
             <tbody id="roleplay-table-body"></tbody>
         </table></div>
-        <div class="mt-8"><h3 class="text-2xl font-bold text-gray-800">Mi Aprendizaje del Role-Play</h3><p class="text-gray-600 mt-2">¿Qué idea o estrategia te llevas de esta práctica que aplicarás en tu PYME?</p><textarea class="autosave-input w-full mt-2 p-3 border border-gray-300 rounded-lg h-32" data-section="roleplay" data-id="roleplay_aprendizaje"></textarea></div>`;
+        <div class="mt-8"><h3 class="text-2xl font-bold text-gray-800">Mi Aprendizaje del Role-Play</h3><p class="text-gray-600 mt-2">¿Qué idea o estrategia te llevas de esta práctica que aplicarás en tu PYME?</p><textarea class="autosave-input w-full mt-2 p-3 border border-gray-300 rounded-lg h-32" data-section="roleplay" data-id="roleplay_aprendizaje" placeholder="Me di cuenta que tiendo a dar la solución en lugar de guiar con preguntas. Practicaré el hacer preguntas de control para asegurar el entendimiento."></textarea></div>`;
 
     document.getElementById('plan').innerHTML = `
         <h2 class="text-3xl font-bold brand-orange mb-4 flex items-center gap-3">${sectionsData[7].icon} ${sectionsData[7].title.substring(3)}</h2>
@@ -607,8 +607,8 @@ for (let i = 1; i <= 2; i++) {
         const row = document.createElement('tr');
         row.className = 'border-b';
         row.innerHTML = `<td class="p-4">${aspecto}</td>
-            <td class="p-2"><textarea class="autosave-input w-full p-2 border rounded" data-section="roleplay" data-id="roleplay_a${index}_aciertos"></textarea></td>
-            <td class="p-2"><textarea class="autosave-input w-full p-2 border rounded" data-section="roleplay" data-id="roleplay_a${index}_mejoras"></textarea></td>`;
+            <td class="p-2"><textarea class="autosave-input w-full p-2 border rounded" data-section="roleplay" data-id="roleplay_a${index}_aciertos" placeholder="Aciertos observados..."></textarea></td>
+            <td class="p-2"><textarea class="autosave-input w-full p-2 border rounded" data-section="roleplay" data-id="roleplay_a${index}_mejoras" placeholder="Oportunidades de mejora..."></textarea></td>`;
         if (roleplayTableBody) roleplayTableBody.appendChild(row);
     });
 
