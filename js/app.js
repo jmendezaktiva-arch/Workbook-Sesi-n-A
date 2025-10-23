@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', function() {
         { id: 'roleplay', title: '7. Role-Play', icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>` },
         { id: 'plan', title: '8. Mi Plan de Implementación', icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" /></svg>` },
         { id: 'resumen', title: '9. Resumen Ejecutivo', icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>` },
+        // ... (objeto de la sección 9)
+        { id: 'reporte', title: '10. Reporte Final', icon: `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" /></svg>` }
     ];
 
 // --- CÓDIGO A REEMPLAZAR EN app.js ---
@@ -332,6 +334,69 @@ sectionsData.forEach(data => {
             </div>
         </div>`;
 
+        document.getElementById('reporte').innerHTML = `
+    <h2 class="text-3xl font-bold brand-orange mb-4 flex items-center gap-3">${sectionsData[9].icon} ${sectionsData[9].title.substring(4)}</h2>
+    <div class="${instructionsBoxClass}">
+        <p><strong>Objetivo:</strong> Consolidar los diagnósticos, definiciones estratégicas y compromisos clave de todo el cuaderno en un único plan de trabajo listo para ser implementado.</p>
+        <p class="mt-2"><strong>Instrucción:</strong> Este reporte se ha generado automáticamente con tus respuestas. Revísalo y úsalo como tu guía de liderazgo para las próximas semanas.</p>
+    </div>
+
+    <div class="avoid-break mt-8 p-6 bg-gray-50 rounded-lg shadow-md">
+        <h3 class="text-xl font-bold text-brand-blue border-b-2 border-brand-orange pb-2 mb-4">Diagnóstico General del Líder</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+                <label class="block font-semibold text-gray-700">Principal Cuello de Botella Operativo:</label>
+                <p id="reporte_cuello_botella" class="mt-1 text-gray-800 bg-white p-3 rounded-md min-h-[100px]">---</p>
+            </div>
+            <div>
+                <label class="block font-semibold text-gray-700">Problema Recurrente de Ownership:</label>
+                <p id="reporte_problema_recurrente" class="mt-1 text-gray-800 bg-white p-3 rounded-md min-h-[100px]">---</p>
+            </div>
+             <div class="md:col-span-2">
+                <label class="block font-semibold text-gray-700">Mi Principal Oportunidad de Mejora en Delegación:</label>
+                <p id="reporte_mejora_delegacion" class="mt-1 text-gray-800 bg-white p-3 rounded-md min-h-[80px]">---</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="avoid-break mt-8 p-6 bg-blue-50 rounded-lg shadow-md border-l-4 border-brand-blue">
+        <h3 class="text-xl font-bold text-brand-blue">Plan Estratégico para: <span id="reporte_puesto1_titulo" class="text-brand-orange">Puesto Clave 1</span></h3>
+        <div class="mt-4 space-y-4">
+            <div>
+                <label class="block font-semibold text-gray-700">Nueva Misión del Rol:</label>
+                <p id="reporte_p1_mision" class="mt-1 text-gray-800 bg-white p-3 rounded-md">---</p>
+            </div>
+            <div>
+                <label class="block font-semibold text-gray-700">Indicadores de Éxito (KPIs):</label>
+                <p id="reporte_p1_kpis" class="whitespace-pre-line mt-1 text-gray-800 bg-white p-3 rounded-md">---</p>
+            </div>
+            <div class="p-4 bg-green-100 rounded-lg">
+                <label class="block font-semibold text-green-800">Acción Prioritaria de Implementación:</label>
+                <p id="reporte_p1_accion" class="mt-1 text-green-900 font-bold p-2">---</p>
+                <p class="text-sm text-gray-600"><strong>Fecha Límite:</strong> <span id="reporte_p1_fecha">---</span></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="avoid-break mt-8 p-6 bg-blue-50 rounded-lg shadow-md border-l-4 border-brand-blue">
+        <h3 class="text-xl font-bold text-brand-blue">Plan Estratégico para: <span id="reporte_puesto2_titulo" class="text-brand-orange">Puesto Clave 2</span></h3>
+         <div class="mt-4 space-y-4">
+            <div>
+                <label class="block font-semibold text-gray-700">Nueva Misión del Rol:</label>
+                <p id="reporte_p2_mision" class="mt-1 text-gray-800 bg-white p-3 rounded-md">---</p>
+            </div>
+            <div>
+                <label class="block font-semibold text-gray-700">Indicadores de Éxito (KPIs):</label>
+                <p id="reporte_p2_kpis" class="whitespace-pre-line mt-1 text-gray-800 bg-white p-3 rounded-md">---</p>
+            </div>
+            <div class="p-4 bg-green-100 rounded-lg">
+                <label class="block font-semibold text-green-800">Acción Prioritaria de Implementación:</label>
+                <p id="reporte_p2_accion" class="mt-1 text-green-900 font-bold p-2">---</p>
+                <p class="text-sm text-gray-600"><strong>Fecha Límite:</strong> <span id="reporte_p2_fecha">---</span></p>
+            </div>
+        </div>
+    </div>
+`;
 
     // --- LÓGICA DE NAVEGACIÓN Y ESTADO ---
     const navLinks = document.querySelectorAll('.nav-link');
@@ -347,6 +412,9 @@ sectionsData.forEach(data => {
         
         if (hash === '#resumen') {
             populateExecutiveSummary();
+        }
+        if (hash === '#reporte') { // <-- AÑADIR ESTO
+            populateFinalReport();
         }
         if (hash === '#plan') {
             updatePlanTitles();
@@ -412,6 +480,7 @@ sectionsData.forEach(data => {
         updateDelegacionTotals();
         checkCompletion();
         populateExecutiveSummary();
+        populateFinalReport(); // <-- AÑADIR ESTO
         updatePlanTitles();
     }
 
@@ -428,6 +497,7 @@ sectionsData.forEach(data => {
             }
             checkCompletion();
             populateExecutiveSummary();
+            populateFinalReport(); // <-- AÑADIR ESTO
             }
     });
         mainContent.addEventListener('change', function(e) {
@@ -442,9 +512,8 @@ sectionsData.forEach(data => {
             }
     });
     
-    function populateExecutiveSummary() {
+function populateExecutiveSummary() {
         const placeholder = 'No definido aún.';
-
         const dataMap = {
             'summary_cuello_botella': 'cuaderno_evaluacion_reflexion',
             'summary_problema_recurrente': 'cuaderno_vocacion_problema_recurrente',
@@ -458,7 +527,6 @@ sectionsData.forEach(data => {
             'summary_accion_prioritaria_p2': 'cuaderno_plan_accion_prioritaria_p2',
             'summary_fecha_limite_p2': 'cuaderno_plan_fecha_limite_p2',
             'summary_obstaculo_p2': 'cuaderno_plan_obstaculo_p2',
-
         };
 
         for (const [elementId, storageKey] of Object.entries(dataMap)) {
@@ -470,6 +538,43 @@ sectionsData.forEach(data => {
                         const date = new Date(value);
                         value = date.toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' }) + ' a las ' + date.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' });
                     } catch(e) { }
+                }
+                element.textContent = (value && value.trim() !== '') ? value : placeholder;
+            }
+        }
+    } // <-- La función populateExecutiveSummary TERMINA AQUÍ.
+
+    // CORRECTO: La función populateFinalReport se define AFUERA, al mismo nivel.
+    function populateFinalReport() {
+        const placeholder = 'Aún no se ha definido.';
+        const dataMap = {
+            // Diagnóstico
+            'reporte_cuello_botella': 'cuaderno_evaluacion_reflexion',
+            'reporte_problema_recurrente': 'cuaderno_vocacion_problema_recurrente',
+            'reporte_mejora_delegacion': 'cuaderno_delegacion_observaciones',
+            // Puesto 1
+            'reporte_puesto1_titulo': 'cuaderno_vocacion_p1_titulo',
+            'reporte_p1_mision': 'cuaderno_mision_p1_mision_rol',
+            'reporte_p1_kpis': 'cuaderno_mision_p1_prioridades_exito',
+            'reporte_p1_accion': 'cuaderno_plan_accion_prioritaria_p1',
+            'reporte_p1_fecha': 'cuaderno_plan_fecha_limite_p1',
+            // Puesto 2
+            'reporte_puesto2_titulo': 'cuaderno_vocacion_p2_titulo',
+            'reporte_p2_mision': 'cuaderno_mision_p2_mision_rol',
+            'reporte_p2_kpis': 'cuaderno_mision_p2_prioridades_exito',
+            'reporte_p2_accion': 'cuaderno_plan_accion_prioritaria_p2',
+            'reporte_p2_fecha': 'cuaderno_plan_fecha_limite_p2',
+        };
+
+        for (const [elementId, storageKey] of Object.entries(dataMap)) {
+            const element = document.getElementById(elementId);
+            if (element) {
+                let value = localStorage.getItem(storageKey);
+                if ((storageKey.includes('fecha_limite')) && value) {
+                    try {
+                        const date = new Date(value);
+                        value = date.toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+                    } catch(e) { /* No hacer nada si la fecha es inválida */ }
                 }
                 element.textContent = (value && value.trim() !== '') ? value : placeholder;
             }
@@ -660,44 +765,59 @@ for (let i = 1; i <= 2; i++) {
         if (roleplayTableBody) roleplayTableBody.appendChild(row);
     });
 
-    // --- EXPORTAR A PDF ---
-    document.getElementById('export-pdf').addEventListener('click', function() {
-        const { jsPDF } = window.jspdf;
-        const content = document.getElementById('main-content');
-        const loadingIndicator = document.getElementById('loading');
-        loadingIndicator.style.display = 'block';
+// --- EXPORTAR A PDF ---
+document.getElementById('export-pdf').addEventListener('click', function() {
+    // 1. Asegurarnos que la data del reporte está actualizada antes de exportar
+    if(typeof populateFinalReport === 'function') {
+        populateFinalReport();
+    }
+
+    const { jsPDF } = window.jspdf;
+    
+    // 2. Apuntamos DIRECTAMENTE al elemento que queremos exportar
+    const content = document.getElementById('reporte'); 
+    
+    if (!content) {
+        alert('La sección del reporte final no se encontró.');
+        return;
+    }
+
+    const loadingIndicator = document.getElementById('loading');
+    loadingIndicator.style.display = 'block';
+    
+    // 3. Ya no necesitamos mostrar/ocultar secciones, el proceso es más limpio
+    html2canvas(content, { scale: 2, useCORS: true }).then(canvas => {
+        const imgData = canvas.toDataURL('image/png');
+        const pdf = new jsPDF('p', 'mm', 'a4');
+        const pdfWidth = pdf.internal.pageSize.getWidth();
+        const imgWidth = canvas.width;
+        const imgHeight = canvas.height;
+        const ratio = imgWidth / imgHeight;
+        const pdfImageHeight = pdfWidth / ratio;
+        let heightLeft = pdfImageHeight;
+        let position = 0;
+
+        pdf.addImage(imgData, 'PNG', 10, 10, pdfWidth - 20, pdfImageHeight - 20); // Añadimos un pequeño margen
+        heightLeft -= (pdf.internal.pageSize.getHeight() - 20);
+
+        while (heightLeft > 0) {
+            position = heightLeft - (pdfImageHeight - 20);
+            pdf.addPage();
+            pdf.addImage(imgData, 'PNG', 10, position, pdfWidth - 20, pdfImageHeight - 20);
+            heightLeft -= (pdf.internal.pageSize.getHeight() - 20);
+        }
+
+        // Renombramos el archivo para reflejar su contenido
+        const participantName = localStorage.getItem('cuaderno_nombre_participante') || 'participante';
+        pdf.save(`Reporte_Final_${participantName}.pdf`);
         
-        const currentHash = window.location.hash || `#${sectionsData[0].id}`;
-        sections.forEach(s => s.classList.add('active')); 
-        
-        html2canvas(content, { scale: 2, useCORS: true }).then(canvas => {
-            showSection(currentHash); 
-            const imgData = canvas.toDataURL('image/png');
-            const pdf = new jsPDF('p', 'mm', 'a4');
-            const pdfWidth = pdf.internal.pageSize.getWidth();
-            const imgWidth = canvas.width;
-            const imgHeight = canvas.height;
-            const ratio = imgWidth / imgHeight;
-            const pdfImageHeight = pdfWidth / ratio;
-            let heightLeft = pdfImageHeight;
-            let position = 0;
-            pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfImageHeight);
-            heightLeft -= pdf.internal.pageSize.getHeight();
-            while (heightLeft > 0) {
-                position = heightLeft - pdfImageHeight;
-                pdf.addPage();
-                pdf.addImage(imgData, 'PNG', 0, position, pdfWidth, pdfImageHeight);
-                heightLeft -= pdf.internal.pageSize.getHeight();
-            }
-            const participantName = localStorage.getItem('cuaderno_nombre_participante') || 'participante';
-            pdf.save(`Cuaderno_MiEmpresaCrece_${participantName}.pdf`);
-            loadingIndicator.style.display = 'none';
-        }).catch(err => {
-            console.error("Error al generar el PDF:", err);
-            loadingIndicator.style.display = 'none';
-            showSection(currentHash);
-        });
+        loadingIndicator.style.display = 'none';
+
+    }).catch(err => {
+        console.error("Error al generar el PDF:", err);
+        loadingIndicator.style.display = 'none';
     });
+});
 
     // --- INICIALIZACIÓN FINAL ---
     const initialHash = window.location.hash || `#${sectionsData[0].id}`;
